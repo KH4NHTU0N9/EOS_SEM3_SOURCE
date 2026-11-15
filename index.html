@@ -7,7 +7,7 @@
   <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>EOS Client — CSD203 • NWC303 • IAO202 • DBI202</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" crossorigin="anonymous"></script>
   <style>
     * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
     body {
@@ -226,10 +226,10 @@
       <!-- Bottom Left EOS Action Buttons (Next Question / Prev Question) -->
       <div class="flex flex-col gap-1.5 pt-1 border-t border-gray-300">
         <div class="grid grid-cols-2 lg:grid-cols-1 gap-1.5">
-          <button onclick="navigateNext()" class="eos-btn py-1.5 px-3 text-xs text-center rounded-sm">
-            Next Question
+          <button onclick="navigateNext()" title="Chuyển câu tiếp theo (Phím tắt: Q hoặc ➔)" class="eos-btn py-1.5 px-3 text-xs text-center rounded-sm font-semibold">
+            Next Question (Q)
           </button>
-          <button onclick="navigatePrev()" class="eos-btn py-1.5 px-3 text-xs text-center rounded-sm">
+          <button onclick="navigatePrev()" title="Quay lại câu trước (Phím tắt: Shift + Tab hoặc ⬅)" class="eos-btn py-1.5 px-3 text-xs text-center rounded-sm">
             Prev Question
           </button>
         </div>
@@ -459,14 +459,14 @@
   <!-- MOBILE STICKY BOTTOM BAR (For phones/tablets) -->
   <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-30 eos-panel border-t border-gray-400 px-1 py-1.5">
     <div class="grid grid-cols-6 gap-1 max-w-lg mx-auto">
-      <button onclick="navigatePrev()" class="eos-btn py-2 text-[11px] rounded-sm">← Prev</button>
+      <button onclick="navigatePrev()" title="Phím tắt: Shift + Tab hoặc ⬅" class="eos-btn py-2 text-[11px] rounded-sm">← Prev</button>
       <button onclick="toggleCurrentBookmark()" id="mBtnBookmark" class="eos-btn py-2 text-[11px] font-bold text-amber-950 bg-amber-50 border-amber-300 rounded-sm">☆ Dấu</button>
       <button onclick="skipCurrentQuestion()" class="eos-btn py-2 text-[11px] font-bold text-amber-950 bg-amber-100 border-amber-400 rounded-sm">⏭ Skip</button>
       <button onclick="toggleMobileBoardModal()" class="eos-btn py-2 text-[11px] rounded-sm text-[#0000CC]">
         📊 Bảng (<span id="navMobileCount">1/71</span>)
       </button>
       <button onclick="toggleExplanationManual()" class="eos-btn py-2 text-[11px] rounded-sm text-amber-900">💡 Giải thích</button>
-      <button onclick="navigateNext()" class="eos-btn py-2 text-[11px] rounded-sm">Next →</button>
+      <button onclick="navigateNext()" title="Phím tắt: Q hoặc ➔" class="eos-btn py-2 text-[11px] rounded-sm font-semibold">Next (Q) →</button>
     </div>
   </nav>
 
@@ -1893,7 +1893,12 @@
     }
 
     function escapeHtml(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
     }
 
     // ===== Markdown-lite renderer (HTML is escaped FIRST, so data can never inject markup) =====
@@ -2017,10 +2022,18 @@
         if (e.key === 'Escape') closeImageModal();
         return;
       }
+      if (!document.getElementById('examResultModal').classList.contains('hidden')) {
+        if (e.key === 'Escape') closeResultSummaryModal();
+        return;
+      }
+      if (!document.getElementById('mobileBoardModal').classList.contains('hidden')) {
+        if (e.key === 'Escape') toggleMobileBoardModal();
+        return;
+      }
 
       const key = e.key.toUpperCase();
-      if (e.key === 'ArrowLeft') { e.preventDefault(); navigatePrev(); }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); navigateNext(); }
+      if (e.key === 'ArrowLeft' || (e.key === 'Tab' && e.shiftKey)) { e.preventDefault(); navigatePrev(); }
+      else if (e.key === 'ArrowRight' || (!e.ctrlKey && !e.metaKey && !e.altKey && (key === 'Q' || (e.key === 'Tab' && !e.shiftKey)))) { e.preventDefault(); navigateNext(); }
       else if (key === 'S' && e.shiftKey) { e.preventDefault(); skipAllQuestionsConfirm(); }
       else if (key === 'S') { e.preventDefault(); skipCurrentQuestion(); }
       else if (key === 'H') { e.preventDefault(); toggleExplanationManual(); }
