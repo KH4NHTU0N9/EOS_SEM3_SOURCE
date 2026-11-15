@@ -7,7 +7,7 @@
   <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>EOS Client — CSD203 • NWC303 • IAO202 • DBI202</title>
-  <script src="https://cdn.tailwindcss.com" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
     body {
@@ -582,8 +582,16 @@
   <!-- DATA SCRIPTS (Works both inside semester3-quiz-hub/ and directly on Desktop/) -->
   <script src="data/quiz_data.js?v=20261112_1715"></script>
   <script src="data/theory_data.js?v=20261112_1715"></script>
-  <script src="semester3-quiz-hub/data/quiz_data.js?v=20261112_1715"></script>
-  <script src="semester3-quiz-hub/data/theory_data.js?v=20261112_1715"></script>
+  <script>
+    if (window.location.protocol === 'file:') {
+      if (typeof window.QUIZ_DATA === 'undefined') {
+        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/quiz_data.js?v=20261112_1715"></scr' + 'ipt>');
+      }
+      if (typeof window.THEORY_DATA === 'undefined') {
+        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/theory_data.js?v=20261112_1715"></scr' + 'ipt>');
+      }
+    }
+  </script>
 
   <script>
     function resolveImagePath(imgPath) {
@@ -2013,7 +2021,14 @@
 
     // Keyboard shortcuts
     window.addEventListener('keydown', (e) => {
-      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+      const activeEl = document.activeElement;
+      const activeTag = activeEl?.tagName;
+      const activeType = (activeEl?.type || '').toLowerCase();
+      const isTextEntry =
+        activeTag === 'TEXTAREA' ||
+        activeEl?.isContentEditable ||
+        (activeTag === 'INPUT' && !['checkbox', 'radio', 'button', 'submit', 'reset'].includes(activeType));
+      if (isTextEntry) return;
       if (!document.getElementById('theoryModal').classList.contains('hidden')) {
         if (e.key === 'Escape') closeTheoryModal();
         return;
@@ -2023,7 +2038,7 @@
         return;
       }
       if (!document.getElementById('examResultModal').classList.contains('hidden')) {
-        if (e.key === 'Escape') closeResultSummaryModal();
+        if (e.key === 'Escape') closeExamResultModal();
         return;
       }
       if (!document.getElementById('mobileBoardModal').classList.contains('hidden')) {
@@ -2032,8 +2047,15 @@
       }
 
       const key = e.key.toUpperCase();
-      if (e.key === 'ArrowLeft' || (e.key === 'Tab' && e.shiftKey)) { e.preventDefault(); navigatePrev(); }
-      else if (e.key === 'ArrowRight' || (!e.ctrlKey && !e.metaKey && !e.altKey && (key === 'Q' || (e.key === 'Tab' && !e.shiftKey)))) { e.preventDefault(); navigateNext(); }
+      if (e.key === 'ArrowLeft' || (e.key === 'Tab' && e.shiftKey)) {
+        e.preventDefault();
+        if (activeEl && activeEl !== document.body && typeof activeEl.blur === 'function') activeEl.blur();
+        navigatePrev();
+      } else if (e.key === 'ArrowRight' || (!e.ctrlKey && !e.metaKey && !e.altKey && (key === 'Q' || (e.key === 'Tab' && !e.shiftKey)))) {
+        e.preventDefault();
+        if (activeEl && activeEl !== document.body && typeof activeEl.blur === 'function') activeEl.blur();
+        navigateNext();
+      }
       else if (key === 'S' && e.shiftKey) { e.preventDefault(); skipAllQuestionsConfirm(); }
       else if (key === 'S') { e.preventDefault(); skipCurrentQuestion(); }
       else if (key === 'H') { e.preventDefault(); toggleExplanationManual(); }
