@@ -263,6 +263,7 @@
           <span id="badgeSlideNum" class="text-gray-600 font-normal ml-1">(Slide #18)</span>
           <span id="badgeType" class="ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-yellow-100 text-amber-900 border border-amber-400">Chọn 1 đáp án</span>
           <span id="badgeComment" class="hidden ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-amber-100 text-amber-900 border border-amber-400 font-bold">💬 Có Note Slide</span>
+          <span id="badgeSuspect" class="hidden ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-rose-100 text-rose-900 border border-rose-400 font-bold" title="Đáp án trên đề gốc có điểm nghi vấn học thuật — mở Giải thích để xem chi tiết">⚠️ Nghi vấn đáp án</span>
         </div>
         <div class="flex items-center gap-1.5">
           <button onclick="toggleCurrentBookmark()" id="btnHeaderBookmark" title="Phím tắt: F" class="eos-btn px-2.5 py-0.5 text-xs flex items-center gap-1 font-semibold text-amber-950 hover:bg-amber-100 border-amber-400">
@@ -580,15 +581,15 @@
   </div>
 
   <!-- DATA SCRIPTS (Works both inside semester3-quiz-hub/ and directly on Desktop/) -->
-  <script src="data/quiz_data.js?v=20261118_1120"></script>
-  <script src="data/theory_data.js?v=20261118_1120"></script>
+  <script src="data/quiz_data.js?v=20261118_1315"></script>
+  <script src="data/theory_data.js?v=20261118_1315"></script>
   <script>
     if (window.location.protocol === 'file:') {
       if (typeof window.QUIZ_DATA === 'undefined') {
-        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/quiz_data.js?v=20261118_1120"></scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/quiz_data.js?v=20261118_1315"></scr' + 'ipt>');
       }
       if (typeof window.THEORY_DATA === 'undefined') {
-        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/theory_data.js?v=20261118_1120"></scr' + 'ipt>');
+        document.write('<scr' + 'ipt src="semester3-quiz-hub/data/theory_data.js?v=20261118_1315"></scr' + 'ipt>');
       }
     }
   </script>
@@ -616,10 +617,10 @@
       showMissingSlides: true,
       showExtraTextOnImageSlide: false,
       subjects: {
-        CSD203: { currentIndex: 0, answered: {}, bookmarks: {} },
-        NWC303: { currentIndex: 0, answered: {}, bookmarks: {} },
-        IAO202: { currentIndex: 0, answered: {}, bookmarks: {} },
-        DBI202: { currentIndex: 0, answered: {}, bookmarks: {} }
+        CSD203: { currentIndex: 0, answered: {}, bookmarks: {}, seededBookmarks: {} },
+        NWC303: { currentIndex: 0, answered: {}, bookmarks: {}, seededBookmarks: {} },
+        IAO202: { currentIndex: 0, answered: {}, bookmarks: {}, seededBookmarks: {} },
+        DBI202: { currentIndex: 0, answered: {}, bookmarks: {}, seededBookmarks: {} }
       }
     };
 
@@ -683,6 +684,9 @@
                     }
                     if (parsed.subjects[s].bookmarks && typeof parsed.subjects[s].bookmarks === 'object') {
                       Object.assign(appState.subjects[s].bookmarks, parsed.subjects[s].bookmarks);
+                    }
+                    if (parsed.subjects[s].seededBookmarks && typeof parsed.subjects[s].seededBookmarks === 'object') {
+                      Object.assign(appState.subjects[s].seededBookmarks, parsed.subjects[s].seededBookmarks);
                     }
                     if (typeof parsed.subjects[s].currentIndex === 'number') {
                       appState.subjects[s].currentIndex = parsed.subjects[s].currentIndex;
@@ -1427,15 +1431,23 @@
       document.getElementById('theoryCitationText').textContent = q.theory_citation || '';
       fbBadge.textContent = `Đáp án đúng: ${q.answers.join(', ')}`;
 
-      // Slide Comment Box
+      // Slide Comment & Suspect Answer Badges
       const badgeComment = document.getElementById('badgeComment');
+      const badgeSuspect = document.getElementById('badgeSuspect');
       const scBox = document.getElementById('slideCommentBox');
       const scText = document.getElementById('slideCommentText');
-      if (q.slide_comment && q.slide_comment.trim().length > 0) {
+      if (badgeSuspect) {
+        if (q.suspect_answer) badgeSuspect.classList.remove('hidden');
+        else badgeSuspect.classList.add('hidden');
+      }
+      const commentParts = [];
+      if (q.suspect_answer) commentParts.push(`⚠️ Đáp án nghi vấn khác key EOS: ${q.suspect_answer}`);
+      if (q.slide_comment && q.slide_comment.trim().length > 0) commentParts.push(q.slide_comment.trim());
+      if (commentParts.length > 0) {
         if (badgeComment) badgeComment.classList.remove('hidden');
         if (scBox) {
           scBox.classList.remove('hidden');
-          scText.textContent = q.slide_comment;
+          scText.textContent = commentParts.join('\n');
         }
       } else {
         if (badgeComment) badgeComment.classList.add('hidden');
@@ -2094,8 +2106,27 @@
       }
     });
 
+    function applyDefaultBookmarks() {
+      let changed = false;
+      for (const s of ALL_SUBJECTS) {
+        const questions = getSubjectQuestions(s);
+        const subjState = appState.subjects[s];
+        if (!subjState.bookmarks) subjState.bookmarks = {};
+        if (!subjState.seededBookmarks) subjState.seededBookmarks = {};
+        for (const q of questions) {
+          if (q.default_bookmark && !subjState.seededBookmarks[q.id]) {
+            subjState.bookmarks[q.id] = true;
+            subjState.seededBookmarks[q.id] = true;
+            changed = true;
+          }
+        }
+      }
+      if (changed) saveState();
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       loadSavedState();
+      applyDefaultBookmarks();
       populateSectionDropdown();
       updateHeaderMetadataUI();
       updateModeButtonsUI();
