@@ -1192,7 +1192,7 @@
     "answers": [
       "C"
     ],
-    "explanation": "🎯 Đáp án đúng: C (C: deque([1, 2]))\n\n📝 Dịch đề:\nKết quả in ra của đoạn code dưới đây là gì?\n\n```python\nfrom collections import deque\nS = deque()\nS.append(1)\nS.append(2)\nS.append(3)\nS.pop()\nprint(S)\n```\n\n📋 Dịch đáp án:\n- C: deque([1, 2])\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\n- Ba lệnh `S.append(1)`, `S.append(2)`, `S.append(3)` thêm lần lượt `1, 2, 3` vào cuối `deque` → `deque([1, 2, 3])`.\n- Lệnh `S.pop()` loại bỏ phần tử ở cuối bên phải (`3`).\n- Do đó `print(S)` in ra `deque([1, 2])` (Đáp án C).\n\n💡 Mẹo nhớ: Đáp án C (deque([1, 2]))",
+    "explanation": "🎯 Đáp án đúng: C (C: deque([1, 2]))\n\n📝 Dịch đề:\nKết quả in ra của đoạn code dưới đây là gì?\n\n```python\nfrom collections import deque\nS = deque()\nS.append(1)\nS.append(2)\nS.append(3)\nS.pop()\nprint(S)\n```\n\n📋 Dịch đáp án:\n- C: deque([1, 2])\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\n- Ba lệnh `S.append(1)`, `S.append(2)`, `S.append(3)` thêm lần lượt `1, 2, 3` vào cuối `deque` → `deque([1, 2, 3])`.\n- Lệnh `S.pop()` loại bỏ phần tử ở cuối bên phải (`3`).\n- Do đó `print(S)` in ra `deque([1, 2])` (Đáp án C).\n\n💡 Mẹo nhớ: Do đó `print(S)` in ra `deque([1, 2])` (Đáp án C). → Chốt đáp án C (deque([1, 2])).",
     "theory_citation": "[1] SEMESTER_3_CSD_SONG_NGỮ.mhtml - Types of Queues: Double-Ended Queue (Deque) (L0013-L0018) & Python 3 Official Documentation (collections.deque)",
     "theory_excerpt": "[L0016] Double-Ended Queue (Deque): In a double-ended queue the insertion and deletion operations, both can be performed from both ends. (Double-Ended Queue (Deque): Trong hàng đợi hai đầu, cả thao tác chèn và xóa đều có thể được thực hiện ở cả hai đầu.)",
     "slide_comment": "",
