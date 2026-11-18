@@ -522,7 +522,7 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: 1)\n\n📝 Dịch đề:\nKết quả in ra của chương trình dưới đây là gì?\n\n```python\na = [5, 4, 7, 2, 9]\nprint(a.index(4))\n```\n\n📋 Dịch đáp án:\n- B: 1\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTrong Python, phương thức `list.index(x)` trả về chỉ số (index, bắt đầu từ `0`) của phần tử đầu tiên trong danh sách có giá trị bằng `x`.\n- Danh sách `a = [5, 4, 7, 2, 9]` có:\n  - `a[0] = 5`\n  - `a[1] = 4`\n- Do đó `a.index(4)` trả về `1` (Đáp án B).\n\n💡 Mẹo nhớ: Đáp án B (1)",
+    "explanation": "🎯 Đáp án đúng: B (B: 1)\n\n📝 Dịch đề:\nKết quả in ra của chương trình dưới đây là gì?\n\n```python\na = [5, 4, 7, 2, 9]\nprint(a.index(4))\n```\n\n📋 Dịch đáp án:\n- B: 1\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTrong Python, phương thức `list.index(x)` trả về chỉ số (index, bắt đầu từ `0`) của phần tử đầu tiên trong danh sách có giá trị bằng `x`.\n- Danh sách `a = [5, 4, 7, 2, 9]` có:\n  - `a[0] = 5`\n  - `a[1] = 4`\n- Do đó `a.index(4)` trả về `1` (Đáp án B).\n\n💡 Mẹo nhớ: Do đó `a.index(4)` trả về `1` (Đáp án B). → Chốt đáp án B (1).",
     "theory_citation": "[1] Python 3 Official Documentation - Built-in Types (list, str: slicing, index, len, extend, del, join, isdigit, isalnum) & SEMESTER_3_CSD_SONG_NGỮ.mhtml (L0061, L0390)",
     "theory_excerpt": "[L0061] Dynamic Array (like vector in C++ or ArrayList in Java / list in Python) → resizes automatically.\n[L0390] Linked lists do not support direct access to elements using an index like arrays (Python list supports O(1) index access, slicing list[start:stop], list.index(x), list.extend(iterable), del list[i]).",
     "slide_comment": "",
