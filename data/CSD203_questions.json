@@ -4563,7 +4563,7 @@
     "answers": [
       "C"
     ],
-    "explanation": "🎯 Đáp án đúng: C (C: 25)\n\n📝 Dịch đề:\nSố lượng phần tử trong ma trận trọng số (weighted matrix) của một đồ thị có 5 đỉnh là bao nhiêu?\n\n📋 Dịch đáp án:\n- C: 25\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nMa trận trọng số (weighted matrix / adjacency matrix) của một đồ thị có V đỉnh là ma trận vuông kích thước V × V, chứa tổng cộng V^2 phần tử.\n- Với V = 5 đỉnh, số phần tử trong ma trận là 5 × 5 = 25 (Đáp án C).\n\n💡 Mẹo nhớ: Đáp án C (25)",
+    "explanation": "🎯 Đáp án đúng: C (C: 25)\n\n📝 Dịch đề:\nSố lượng phần tử trong ma trận trọng số (weighted matrix) của một đồ thị có 5 đỉnh là bao nhiêu?\n\n📋 Dịch đáp án:\n- C: 25\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nMa trận trọng số (weighted matrix / adjacency matrix) của một đồ thị có V đỉnh là ma trận vuông kích thước V × V, chứa tổng cộng V^2 phần tử.\n- Với V = 5 đỉnh, số phần tử trong ma trận là 5 × 5 = 25 (Đáp án C).\n\n💡 Mẹo nhớ: Với V = 5 đỉnh, số phần tử trong ma trận là 5 × 5 = 25 (Đáp án C). → Chốt đáp án C (25).",
     "theory_citation": "[1] SEMESTER_3_CSD_SONG_NGỮ.mhtml - Graph Representation & Handshaking Lemma (L0197, L0210-L0211, L0393)",
     "theory_excerpt": "[L0197] A minimum spanning tree (MST) of a weighted, connected, undirected graph is a cycle-free set of edges that connects all vertices...\n[L0210] Given a weighted, undirected graph... The graph has V vertices, labeled from 0 to V - 1. (Ma trận trọng số/kề của đồ thị V đỉnh có kích thước V × V = V^2 phần tử; theo Bổ đề bắt tay - Handshaking Lemma, tổng bậc của mọi đỉnh trong đồ thị vô hướng bằng 2E).",
     "slide_comment": "",
