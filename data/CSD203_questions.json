@@ -1821,7 +1821,7 @@
     "answers": [
       "A"
     ],
-    "explanation": "🎯 Đáp án đúng: A (A: 10)\n\n📝 Dịch đề:\nKết quả in ra của đoạn code dưới đây là gì?\n\n```python\ndef f(n):\n    if (n == 1):\n        return 1\n    return n + f(n - 1)\n\nprint(f(4))\n```\n\n📋 Dịch đáp án:\n- A: 10\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTính giá trị `f(4)`:\n- `f(4) = 4 + f(3)`\n- `f(3) = 3 + f(2)`\n- `f(2) = 2 + f(1)`\n- `f(1) = 1` (trường hợp cơ sở `n == 1`).\n- Tổng: `4 + 3 + 2 + 1 = 10` (Đáp án A).\n\n💡 Mẹo nhớ: Đáp án A (10)",
+    "explanation": "🎯 Đáp án đúng: A (A: 10)\n\n📝 Dịch đề:\nKết quả in ra của đoạn code dưới đây là gì?\n\n```python\ndef f(n):\n    if (n == 1):\n        return 1\n    return n + f(n - 1)\n\nprint(f(4))\n```\n\n📋 Dịch đáp án:\n- A: 10\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTính giá trị `f(4)`:\n- `f(4) = 4 + f(3)`\n- `f(3) = 3 + f(2)`\n- `f(2) = 2 + f(1)`\n- `f(1) = 1` (trường hợp cơ sở `n == 1`).\n- Tổng: `4 + 3 + 2 + 1 = 10` (Đáp án A).\n\n💡 Mẹo nhớ: Tổng: `4 + 3 + 2 + 1 = 10` (Đáp án A). → Chốt đáp án A (10).",
     "theory_citation": "[1] SEMESTER_3_CSD_SONG_NGỮ.mhtml - Recursive Nature & Recursive Approach (L0081, L0321-L0325, L0356-L0362) & Python 3 Official Documentation",
     "theory_excerpt": "[L0081] Recursive Nature: Each left or right subtree of a node in a BST is itself a BST, allowing recursive algorithms to naturally process the tree. (Tính chất đệ quy: Mỗi cây con bên trái hoặc bên phải của một nút trong BST cũng chính là một BST, cho phép các thuật toán đệ quy xử lý cây một cách tự nhiên.)\n[L0321] To implement inorder traversal, we can use recursion or an iterative approach.",
     "slide_comment": "",
