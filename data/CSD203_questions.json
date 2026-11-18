@@ -411,7 +411,7 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: 5)\n\n📝 Dịch đề:\nKết quả in ra của chương trình dưới đây là gì?\n\n```python\na = [1, 2, 3, 4, 5]\na[0] = 6\nprint(len(a))\n```\n\n📋 Dịch đáp án:\n- B: 5\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\n- Danh sách `a = [1, 2, 3, 4, 5]` ban đầu có 5 phần tử.\n- Lệnh `a[0] = 6` chỉ cập nhật giá trị của phần tử tại chỉ số `0` từ `1` thành `6` (`a` trở thành `[6, 2, 3, 4, 5]`), không làm thay đổi số lượng phần tử của danh sách.\n- Do đó hàm `len(a)` trả về `5` (Đáp án B).\n\n💡 Mẹo nhớ: Đáp án B (5)",
+    "explanation": "🎯 Đáp án đúng: B (B: 5)\n\n📝 Dịch đề:\nKết quả in ra của chương trình dưới đây là gì?\n\n```python\na = [1, 2, 3, 4, 5]\na[0] = 6\nprint(len(a))\n```\n\n📋 Dịch đáp án:\n- B: 5\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\n- Danh sách `a = [1, 2, 3, 4, 5]` ban đầu có 5 phần tử.\n- Lệnh `a[0] = 6` chỉ cập nhật giá trị của phần tử tại chỉ số `0` từ `1` thành `6` (`a` trở thành `[6, 2, 3, 4, 5]`), không làm thay đổi số lượng phần tử của danh sách.\n- Do đó hàm `len(a)` trả về `5` (Đáp án B).\n\n💡 Mẹo nhớ: Do đó hàm `len(a)` trả về `5` (Đáp án B). → Chốt đáp án B (5).",
     "theory_citation": "[1] Python 3 Official Documentation - Built-in Types (list, str: slicing, index, len, extend, del, join, isdigit, isalnum) & SEMESTER_3_CSD_SONG_NGỮ.mhtml (L0061, L0390)",
     "theory_excerpt": "[L0061] Dynamic Array (like vector in C++ or ArrayList in Java / list in Python) → resizes automatically.\n[L0390] Linked lists do not support direct access to elements using an index like arrays (Python list supports O(1) index access, slicing list[start:stop], list.index(x), list.extend(iterable), del list[i]).",
     "slide_comment": "",
