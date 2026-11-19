@@ -2909,7 +2909,7 @@
     "section": "Câu Hỏi Đơn (Single Choice)",
     "image": "images/NWC303/slide_085.png",
     "missing_image": false,
-    "question_text": "What type of Ethernet cable would be used to connect one switch to another switch when neither switch\nsupports the auto-MDIX feature?",
+    "question_text": "What type of Ethernet cable would be used to connect one switch to another switch when neither switch supports the auto-MDIX feature?",
     "type": "single",
     "options": [
       {
@@ -2932,11 +2932,11 @@
     "answers": [
       "A"
     ],
-    "explanation": "🎯 Đáp án đúng: A (A: crossover)\n\n📝 Dịch đề:\nLoại cáp Ethernet nào sẽ được sử dụng để kết nối switch này với switch khác khi cả hai switch đều không hoạt động\nhỗ trợ tính năng tự động MDIX?\n\n📋 Dịch đáp án:\n- A: crossover\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nKhi giao diện chéo phụ thuộc phương tiện tự động (auto-MDIX) được bật, giao diện switch tự động phát hiện loại kết nối cáp cần thiết (cáp thẳng hoặc cáp chéo) và cấu hình kết nối một cách thích hợp.\n\n💡 Mẹo nhớ: Đáp án A (crossover)",
+    "explanation": "🎯 Đáp án đúng: A (A: crossover)\n\n📝 Dịch đề:\nLoại cáp Ethernet nào sẽ được sử dụng để kết nối từ switch này sang switch khác khi cả hai switch đều không hỗ trợ tính năng auto-MDIX?\n\n📋 Dịch đáp án:\n- A: Cáp mạng chéo (crossover — nối hai thiết bị cùng loại không có Auto-MDIX)\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo chuẩn IEEE 802.3 và Module 1.2.2 [L0187], khi cả hai switch đều không hỗ trợ tính năng tự động nhận diện cáp Auto-MDIX, việc kết nối hai thiết bị cùng loại (Switch với Switch) bắt buộc phải sử dụng cáp mạng chéo (`crossover` - A).\n\n💡 Mẹo nhớ: Đáp án A (crossover)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L0186-L0200)",
     "theory_excerpt": "[L0186] (Khi giao diện chéo phụ thuộc phương tiện tự động (auto-MDIX) được bật, giao diện switch tự động phát hiện loại kết nối cáp cần thiết (cáp thẳng hoặc cáp chéo) và cấu hình kết nối một cách thích hợp.)\n[L0187] - When connecting to switches without the auto-MDIX feature, straight-through cables must be used for devices like servers or routers, while crossover cables must be used for other switches or repeaters.\n[L0188] (Khi kết nối với các switch không có tính năng auto-MDIX, cáp thẳng phải được sử dụng cho các thiết bị như máy chủ hoặc bộ định tuyến, trong khi cáp chéo phải được sử dụng cho các switch hoặc bộ lặp khác.)\n[L0189] - With auto-MDIX enabled, either type of cable can be used to connect to other devices, and the interface automatically adjusts to communicate successfully.\n[L0190] (Khi auto-MDIX được bật, có thể sử dụng bất kỳ loại cáp nào để kết nối với các thiết bị khác, và giao diện sẽ tự động điều chỉnh để giao tiếp thành công.)\n[L0191] - On newer Cisco switches, the 'mdix auto' interface configuration mode command enables the feature.\n[L0192] (Trên các switch Cisco mới hơn, lệnh chế độ cấu hình giao diện 'mdix auto' bật tính năng này.)\n[L0193] - When using auto-MDIX on an interface, the interface speed and duplex must be set to 'auto' so that the feature operates correctly.\n[L0194] (Khi sử dụng auto-MDIX trên một giao diện, tốc độ và chế độ song công của giao diện phải được đặt thành 'auto' để tính năng hoạt động chính xác.)\n[L0195] - The auto-MDIX feature is enabled by default on Catalyst 2960 and Catalyst 3560 switches but is not available on older Catalyst 2950 and Catalyst 3550 switches.\n[L0196] (Tính năng auto-MDIX được bật theo mặc định trên các switch Catalyst 2960 và Catalyst 3560 nhưng không có sẵn trên các switch Catalyst 2950 và Catalyst 3550 cũ hơn.)\n[L0197] - To examine the auto-MDIX setting for a specific interface, use the 'show controllers ethernet-controller' command with the 'phy' keyword.\n[L0198] (Để kiểm tra cài đặt auto-MDIX cho một giao diện cụ thể, hãy sử dụng lệnh 'show controllers ethernet-controller' với từ khóa 'phy'.)\n[L0199] - To limit the output to lines referencing auto-MDIX, use the 'include Auto-MDIX' filter.\n[L0200] (Để giới hạn kết quả chỉ hiển thị các dòng tham chiếu đến auto-MDIX, hãy sử dụng bộ lọc 'include Auto-MDIX'.)",
     "slide_comment": "",
-    "question_translation": "Loại cáp Ethernet nào sẽ được sử dụng để kết nối switch này với switch khác khi cả hai switch đều không hoạt động\nhỗ trợ tính năng tự động MDIX?"
+    "question_translation": "Loại cáp Ethernet nào sẽ được sử dụng để kết nối từ switch này sang switch khác khi cả hai switch đều không hỗ trợ tính năng auto-MDIX?"
   },
   {
     "id": 76,
