@@ -2167,7 +2167,7 @@
     "answers": [
       "A"
     ],
-    "explanation": "🎯 Đáp án đúng: A (A: SSID)\n\n📝 Dịch đề:\nTham số nào thường được sử dụng để định danh tên mạng không dây khi cấu hình một AP không dây gia đình?\n\n📋 Dịch đáp án:\n- A: SSID\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTham số SSID (Service Set Identifier - A) là tên định danh của mạng không dây mà máy khách muốn kết nối tới khi cấu hình bộ định tuyến hoặc điểm truy cập không dây (AP).\n\n💡 Mẹo nhớ: Đáp án A (SSID)",
+    "explanation": "🎯 Đáp án đúng: A (A: SSID)\n\n📝 Dịch đề:\nTham số nào thường được sử dụng để định danh tên mạng không dây khi cấu hình một AP không dây gia đình?\n\n📋 Dịch đáp án:\n- A: Định danh tập dịch vụ (Service Set Identifier — tên mạng Wi-Fi)\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTham số SSID (Service Set Identifier - A) là tên định danh của mạng không dây mà máy khách muốn kết nối tới khi cấu hình bộ định tuyến hoặc điểm truy cập không dây (AP).\n\n💡 Mẹo nhớ: Đáp án A (SSID)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - Module 12. WLAN Concepts - 3.3. Wireless Client and AP Association & Module 13. WLAN Configuration - 1.3. Basic Wireless Setup (L2236-L2239, L2392-L2393)",
     "theory_excerpt": "[L2236] - The required parameters for successful association include:\n[L2237] (Các thông số cần thiết để liên kết thành công bao gồm:)\n[L2238] + SSID: The name of the network the client wants to connect to.\n[L2239] (SSID: Tên của mạng mà máy khách muốn kết nối.)",
     "slide_comment": "",
