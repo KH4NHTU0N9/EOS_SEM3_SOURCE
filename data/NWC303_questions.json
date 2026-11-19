@@ -5650,17 +5650,17 @@
       },
       {
         "key": "D",
-        "text": "DHCPV4 Discover message"
+        "text": "DHCPv4 Discover message"
       }
     ],
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: Router Solicitation (RS) message)\n\n📝 Dịch đề:\nMáy chủ có thể gửi tin nhắn nào để yêu cầu router gửi tin nhắn RA?\n\n📋 Dịch đáp án:\n- B: Router Solicitation (RS) message\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nSLAAC định kỳ gửi thông báo RA ICMPv6 (mỗi 200 giây) cung cấp địa chỉ và thông tin cấu hình khác để máy chủ tự động cấu hình địa chỉ IPv6 của chúng dựa trên thông tin trong RA, trong khi máy chủ cũng có thể gửi thông báo Lời gọi Bộ định tuyến (RS) để yêu cầu RA.\n\n💡 Mẹo nhớ: Đáp án B (Router Solicitation (RS) message)",
+    "explanation": "🎯 Đáp án đúng: B (B: Router Solicitation (RS) message)\n\n📝 Dịch đề:\nMáy trạm (host) có thể gửi thông điệp nào để yêu cầu bộ định tuyến gửi thông điệp Quảng bá Bộ định tuyến (RA)?\n\n📋 Dịch đáp án:\n- B: Thông điệp Yêu cầu Bộ định tuyến (ICMPv6 Router Solicitation - RS)\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nSLAAC định kỳ gửi thông báo RA ICMPv6 (mỗi 200 giây) cung cấp địa chỉ và thông tin cấu hình khác để máy chủ tự động cấu hình địa chỉ IPv6 của chúng dựa trên thông tin trong RA, trong khi máy chủ cũng có thể gửi thông báo Lời gọi Bộ định tuyến (RS) để yêu cầu RA.\n\n💡 Mẹo nhớ: Đáp án B (Router Solicitation (RS) message)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1506-L1520)",
     "theory_excerpt": "[L1506] + Step 2: The router responds with an RA message.\n[L1507] (Bước 2: Bộ định tuyến phản hồi bằng thông báo RA.)\n[L1508] + Step 3: The host sends a DHCPv6 SOLICIT message.\n[L1509] (Bước 3: Máy chủ gửi thông báo SOLICIT của DHCPv6.)\n[L1510] + Step 4: The DHCPv6 server responds with an ADVERTISE message.\n[L1511] (Bước 4: Máy chủ DHCPv6 phản hồi bằng thông báo ADVERTISE.)\n[L1512] + Step 5: The host responds to the DHCPv6 server.\n[L1513] (Bước 5: Máy chủ phản hồi cho máy chủ DHCPv6.)\n[L1514] + Step 6: The DHCPv6 server sends a REPLY message.\n[L1515] (Bước 6: Máy chủ DHCPv6 gửi thông báo REPLY.)\n[L1516] - Server to client DHCPv6 messages use UDP destination port 546, while client to server DHCPv6 messages use UDP destination port 547.\n[L1517] (Thông báo DHCPv6 từ máy chủ đến máy khách sử dụng cổng đích UDP 546, trong khi thông báo DHCPv6 từ máy khách đến máy chủ sử dụng cổng đích UDP 547.)\n[L1518] - A primary difference between DHCPv4 and DHCPv6 from an operational perspective is the terminology and protocol specifics, such as DHCPv6 using SOLICIT, ADVERTISE, and REPLY messages instead of DISCOVER, OFFER, and ACK.\n[L1519] (Một sự khác biệt chính giữa DHCPv4 và DHCPv6 từ góc độ vận hành là thuật ngữ và các đặc điểm giao thức cụ thể, chẳng hạn như DHCPv6 sử dụng các thông báo SOLICIT, ADVERTISE và REPLY thay vì DISCOVER, OFFER và ACK.)\n[L1520] 3.2. Stateless DHCPv6 Operation:",
     "slide_comment": "Máy chủ (host) có thể gửi loại thông điệp nào để yêu cầu router gửi thông điệp Router Advertisement (RA)? B. Router Solicitation (RS) message Trong IPv6, host gửi Router Solicitation (RS) để yêu cầu router phản hồi bằng Router Advertisement (RA).",
-    "question_translation": "Máy chủ có thể gửi tin nhắn nào để yêu cầu router gửi tin nhắn RA?"
+    "question_translation": "Máy trạm (host) có thể gửi thông điệp nào để yêu cầu bộ định tuyến gửi thông điệp Quảng bá Bộ định tuyến (RA)?"
   },
   {
     "id": 151,
