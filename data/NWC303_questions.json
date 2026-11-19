@@ -8078,7 +8078,7 @@
       },
       {
         "key": "C",
-        "text": "To provide a virtual private network (VPN) over WLAN U"
+        "text": "To provide a virtual private network (VPN) over WLAN"
       },
       {
         "key": "D",
@@ -8088,7 +8088,7 @@
     "answers": [
       "A"
     ],
-    "explanation": "🎯 Đáp án đúng: A (A: To allow a WLC to manage multiple access points)\n\n📝 Dịch đề:\nMục đích của CAPWAP trong mạng WLAN là gì?\n\n📋 Dịch đáp án:\n- A: To allow a WLC to manage multiple access points\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nĐiều khiển và Cung cấp các Điểm Truy cập Không dây (CAPWAP) là một giao thức chuẩn IEEE dựa trên LWAPP cho phép WLC quản lý nhiều AP và WLAN trong khi bổ sung Bảo mật Lớp Truyền tải Sơ đồ Dữ liệu (DTLS).\n\n💡 Mẹo nhớ: Đáp án A (To allow a WLC to manage multiple access points)",
+    "explanation": "🎯 Đáp án đúng: A (A: To allow a WLC to manage multiple access points)\n\n📝 Dịch đề:\nMục đích của CAPWAP trong mạng WLAN là gì?\n\n📋 Dịch đáp án:\n- A: Cho phép Bộ điều khiển WLAN (WLC) quản lý tập trung nhiều điểm truy cập (AP)\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo chuẩn IETF RFC 5415 và Module 12.4.1 [L2257-L2262], mục đích chính của giao thức CAPWAP (nâng cấp từ LWAPP) trong mạng WLAN doanh nghiệp là cho phép Bộ điều khiển không dây (WLC) quản lý và cấu hình tập trung nhiều điểm truy cập (`To allow a WLC to manage multiple access points` - A).\n\n💡 Mẹo nhớ: Đáp án A (To allow a WLC to manage multiple access points)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L2446-L2460)",
     "theory_excerpt": "[L2446] + Step 2: Apply and Enable the WLAN: Next the WLAN is enabled and the WLAN settings are configured.\n[L2447] (Bước 2: Áp dụng và Bật WLAN: Tiếp theo WLAN được bật và các cài đặt WLAN được cấu hình.)\n[L2448] + Step 3: Select the Interface: The interface that will carry the WLAN traffic must be selected.\n[L2449] (Bước 3: Chọn Giao diện: Giao diện sẽ truyền tải lưu lượng WLAN phải được chọn.)\n[L2450] + Step 4: Secure the WLAN: The Security tab is used to access all the available options for securing the LAN.\n[L2451] (Bước 4: Bảo mật WLAN: Tab Bảo mật được sử dụng để truy cập tất cả các tùy chọn có sẵn để bảo mật LAN.)\n[L2452] + Step 5: Verify the WLAN is Operational: The WLANs menu on the left is used to view the newly configured WLAN and its settings.\n[L2453] (Bước 5: Xác minh WLAN đang hoạt động: Menu WLANs bên trái được sử dụng để xem WLAN mới được cấu hình và các cài đặt của nó.)\n[L2454] + Step 6: Monitor the WLAN: The Monitor tab is used to access the advanced Summary page and confirm that the Wireless_LAN now has one client using its services.\n[L2455] (Bước 6: Giám sát WLAN: Tab Giám sát được sử dụng để truy cập trang Tóm tắt nâng cao và xác nhận rằng Wireless_LAN hiện có một máy khách đang sử dụng các dịch vụ của nó.)\n[L2456] + Step 7: View Wireless Client Details: Click Clients in the left menu to view more information about the clients connected to the WLAN.\n[L2457] (Bước 7: Xem chi tiết Máy khách Không dây: Nhấp vào Clients trong menu bên trái để xem thêm thông tin về các máy khách được kết nối với WLAN.)\n[L2458] 3. Configure a WPA2 Enterprise WLAN on the WLC:\n[L2459] 3.1. SNMP and RADIUS Services:\n[L2460] - PC-A is running Simple Network Management Protocol (SNMP) and Remote Authentication Dial-In User Service (RADIUS) server software.",
     "slide_comment": "",
