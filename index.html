@@ -392,19 +392,24 @@
           <span class="text-rose-900">✗ Sai:</span>
           <strong id="statWrongCount" class="text-rose-700 font-mono">0</strong>
         </div>
-        <div onclick="setFilterMode('bookmarked')" title="Nhấn để lọc danh sách câu đã đánh dấu" class="bg-amber-50 hover:bg-amber-100 border border-amber-400 p-1.5 rounded-sm flex items-center justify-between col-span-2 cursor-pointer transition-colors shadow-xs">
-          <span class="text-amber-950 font-bold flex items-center gap-1">★ Đã đánh dấu (Bookmark):</span>
+        <div onclick="setFilterMode('bookmarked')" title="Nhấn để lọc danh sách câu đã đánh dấu" class="bg-amber-50 hover:bg-amber-100 border border-amber-400 p-1.5 rounded-sm flex items-center justify-between cursor-pointer transition-colors shadow-xs">
+          <span class="text-amber-950 font-bold flex items-center gap-1">★ Đánh dấu:</span>
           <strong id="statBookmarkCount" class="text-amber-900 font-mono text-sm font-bold">0</strong>
+        </div>
+        <div onclick="setFilterMode('purple')" title="Nhấn để lọc các câu đánh dấu màu tím (có đáp án thứ 2 / lưu ý)" class="bg-purple-50 hover:bg-purple-100 border border-purple-500 p-1.5 rounded-sm flex items-center justify-between cursor-pointer transition-colors shadow-xs">
+          <span class="text-purple-950 font-bold flex items-center gap-1">🟣 Đáp án 2:</span>
+          <strong id="statPurpleCount" class="text-purple-900 font-mono text-sm font-bold">0</strong>
         </div>
       </div>
 
       <!-- Filter Tabs for Status Board -->
-      <div class="grid grid-cols-5 gap-1 text-[11px]">
+      <div class="grid grid-cols-3 gap-1 text-[11px]">
         <button onclick="setFilterMode('all')" id="tabModeAll" class="eos-btn py-1 rounded-sm text-center">Tất cả</button>
         <button onclick="setFilterMode('unanswered')" id="tabModeUnanswered" class="eos-btn py-1 rounded-sm text-center">Chưa làm</button>
         <button onclick="setFilterMode('done')" id="tabModeDone" class="eos-btn py-1 rounded-sm text-center">Đã làm</button>
         <button onclick="setFilterMode('wrong')" id="tabModeWrong" class="eos-btn py-1 rounded-sm text-center">Câu sai</button>
         <button onclick="setFilterMode('bookmarked')" id="tabModeBookmarked" class="eos-btn py-1 rounded-sm text-center text-amber-900 font-bold" title="Lọc các câu có dấu ★">★ Dấu</button>
+        <button onclick="setFilterMode('purple')" id="tabModePurple" class="eos-btn py-1 rounded-sm text-center text-purple-900 font-bold" title="Lọc các câu màu tím (có Đáp án thứ 2 / Lưu ý)">🟣 Tím (ĐÁ 2)</button>
       </div>
 
       <!-- Search & Section Filter -->
@@ -491,19 +496,21 @@
         <span class="font-bold text-[#000080] text-sm">Bảng Câu Hỏi Đã Làm &amp; Chưa Làm</span>
         <button onclick="toggleMobileBoardModal()" class="eos-btn px-2 py-0.5 text-xs">✕ Đóng</button>
       </div>
-      <div class="grid grid-cols-5 gap-1 text-center text-xs">
+      <div class="grid grid-cols-6 gap-1 text-center text-[11px]">
         <div class="bg-white border border-gray-400 p-1">Đã làm<br/><strong id="mStatDone" class="text-[#0000CC]">0</strong></div>
         <div class="bg-white border border-gray-400 p-1">Chưa làm<br/><strong id="mStatTodo">0</strong></div>
         <div class="bg-emerald-50 border border-emerald-500 p-1 text-emerald-800">Đúng<br/><strong id="mStatCorrect">0</strong></div>
         <div class="bg-rose-50 border border-rose-500 p-1 text-rose-800">Sai<br/><strong id="mStatWrong">0</strong></div>
         <div class="bg-amber-50 border border-amber-500 p-1 text-amber-900 cursor-pointer" onclick="setFilterMode('bookmarked'); toggleMobileBoardModal();">★ Dấu<br/><strong id="mStatBookmark">0</strong></div>
+        <div class="bg-purple-50 border border-purple-500 p-1 text-purple-900 cursor-pointer" onclick="setFilterMode('purple'); toggleMobileBoardModal();">🟣 ĐÁ 2<br/><strong id="mStatPurple">0</strong></div>
       </div>
-      <div class="grid grid-cols-5 gap-1 text-xs">
+      <div class="grid grid-cols-3 gap-1 text-xs">
         <button onclick="setFilterMode('all'); toggleMobileBoardModal();" id="mTabModeAll" class="eos-btn py-1 text-center">Tất cả</button>
         <button onclick="setFilterMode('unanswered'); toggleMobileBoardModal();" id="mTabModeUnanswered" class="eos-btn py-1 text-center">Chưa làm</button>
         <button onclick="setFilterMode('done'); toggleMobileBoardModal();" id="mTabModeDone" class="eos-btn py-1 text-center">Đã làm</button>
         <button onclick="setFilterMode('wrong'); toggleMobileBoardModal();" id="mTabModeWrong" class="eos-btn py-1 text-center">Câu sai</button>
         <button onclick="setFilterMode('bookmarked'); toggleMobileBoardModal();" id="mTabModeBookmarked" class="eos-btn py-1 text-center text-amber-900 font-bold">★ Dấu</button>
+        <button onclick="setFilterMode('purple'); toggleMobileBoardModal();" id="mTabModePurple" class="eos-btn py-1 text-center text-purple-900 font-bold">🟣 Tím (ĐÁ 2)</button>
       </div>
       <div id="mobileStatusGrid" class="eos-inset p-2 grid grid-cols-6 gap-1.5 overflow-y-auto flex-grow content-start"></div>
       <div class="flex flex-wrap justify-between items-center gap-1.5 pt-1.5 border-t border-gray-300 text-xs">
@@ -985,6 +992,7 @@
         if (appState.filterMode === 'done') return !!rec;
         if (appState.filterMode === 'wrong') return rec && rec.isCorrect === false;
         if (appState.filterMode === 'bookmarked') return !!subjState.bookmarks[q.id];
+        if (appState.filterMode === 'purple') return isPurpleQuestion(q);
         return true;
       });
     }
@@ -1115,10 +1123,13 @@
       const subjState = appState.subjects[subj];
       const baseList = getSubjectQuestions(subj).filter(q => appState.showMissingSlides || !q.missing_image);
 
-      let done = 0, todo = 0, correct = 0, wrong = 0, bookmarked = 0;
+      let done = 0, todo = 0, correct = 0, wrong = 0, bookmarked = 0, purpleCount = 0;
       baseList.forEach(q => {
         if (subjState.bookmarks && subjState.bookmarks[q.id]) {
           bookmarked++;
+        }
+        if (isPurpleQuestion(q)) {
+          purpleCount++;
         }
         if (appState.mode === 'exam' && !examRevealed) {
           const d = examDraftAnswers[q.id];
@@ -1141,6 +1152,8 @@
       document.getElementById('statWrongCount').textContent = wrong;
       const elStatBm = document.getElementById('statBookmarkCount');
       if (elStatBm) elStatBm.textContent = bookmarked;
+      const elStatPurple = document.getElementById('statPurpleCount');
+      if (elStatPurple) elStatPurple.textContent = purpleCount;
 
       document.getElementById('mStatDone').textContent = done;
       document.getElementById('mStatTodo').textContent = todo;
@@ -1148,6 +1161,8 @@
       document.getElementById('mStatWrong').textContent = wrong;
       const elMStatBm = document.getElementById('mStatBookmark');
       if (elMStatBm) elMStatBm.textContent = bookmarked;
+      const elMStatPurple = document.getElementById('mStatPurple');
+      if (elMStatPurple) elMStatPurple.textContent = purpleCount;
 
       document.getElementById('mobileDoneCount').textContent = `${done}/${baseList.length}`;
 
@@ -1156,15 +1171,20 @@
         unanswered: 'tabModeUnanswered',
         done: 'tabModeDone',
         wrong: 'tabModeWrong',
-        bookmarked: 'tabModeBookmarked'
+        bookmarked: 'tabModeBookmarked',
+        purple: 'tabModePurple'
       };
       Object.entries(modes).forEach(([m, id]) => {
         const el = document.getElementById(id);
         if (el) {
           if (m === appState.filterMode) {
-            el.className = 'py-1 rounded-sm text-center font-bold bg-[#0000CC] text-white border border-[#000080] shadow-sm';
+            el.className = (m === 'purple')
+              ? 'py-1 rounded-sm text-center font-bold bg-purple-700 text-white border border-purple-900 shadow-sm'
+              : 'py-1 rounded-sm text-center font-bold bg-[#0000CC] text-white border border-[#000080] shadow-sm';
           } else {
-            el.className = 'eos-btn py-1 rounded-sm text-center' + (m === 'bookmarked' ? ' text-amber-900 font-bold' : '');
+            el.className = 'eos-btn py-1 rounded-sm text-center'
+              + (m === 'bookmarked' ? ' text-amber-900 font-bold' : '')
+              + (m === 'purple' ? ' text-purple-900 font-bold' : '');
           }
         }
       });
@@ -1174,15 +1194,20 @@
         unanswered: 'mTabModeUnanswered',
         done: 'mTabModeDone',
         wrong: 'mTabModeWrong',
-        bookmarked: 'mTabModeBookmarked'
+        bookmarked: 'mTabModeBookmarked',
+        purple: 'mTabModePurple'
       };
       Object.entries(mModes).forEach(([m, id]) => {
         const el = document.getElementById(id);
         if (el) {
           if (m === appState.filterMode) {
-            el.className = 'py-1 rounded-sm text-center font-bold bg-[#0000CC] text-white border border-[#000080]';
+            el.className = (m === 'purple')
+              ? 'py-1 rounded-sm text-center font-bold bg-purple-700 text-white border border-purple-900'
+              : 'py-1 rounded-sm text-center font-bold bg-[#0000CC] text-white border border-[#000080]';
           } else {
-            el.className = 'eos-btn py-1 rounded-sm text-center' + (m === 'bookmarked' ? ' text-amber-900 font-bold' : '');
+            el.className = 'eos-btn py-1 rounded-sm text-center'
+              + (m === 'bookmarked' ? ' text-amber-900 font-bold' : '')
+              + (m === 'purple' ? ' text-purple-900 font-bold' : '');
           }
         }
       });
@@ -1202,6 +1227,8 @@
         qBox.classList.remove('hidden');
         if (appState.filterMode === 'bookmarked') {
           qBox.innerHTML = '<div class="p-4 bg-amber-50 border border-amber-300 rounded text-amber-950 font-sans"><strong class="text-base">Chưa có câu hỏi nào được đánh dấu ★ trong môn này!</strong><p class="mt-2 text-sm text-gray-700">Để đánh dấu câu cần lưu ý hoặc cần ôn lại, bạn hãy bấm vào nút <strong>"☆ Đánh dấu (F)"</strong> trên thanh công cụ hoặc nhấn phím <strong>F</strong> khi đang xem câu hỏi đó.</p><button onclick="setFilterMode(\'all\')" class="mt-3 eos-btn px-3 py-1 font-bold text-xs bg-white text-[#0000CC] border-blue-600">Quay lại xem tất cả câu hỏi</button></div>';
+        } else if (appState.filterMode === 'purple') {
+          qBox.innerHTML = '<div class="p-4 bg-purple-50 border border-purple-300 rounded text-purple-950 font-sans"><strong class="text-base">Không có câu hỏi đánh dấu màu tím 🟣 nào trong bộ lọc này!</strong><p class="mt-2 text-sm text-gray-700">Các câu màu tím là các câu có phương án đáp án thứ 2 hoặc lưu ý học thuật đặc biệt.</p><button onclick="setFilterMode(\'all\')" class="mt-3 eos-btn px-3 py-1 font-bold text-xs bg-white text-purple-800 border-purple-500">Quay lại xem tất cả câu hỏi</button></div>';
         } else {
           qBox.textContent = 'Không có câu hỏi nào trong bộ lọc này.';
         }
