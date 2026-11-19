@@ -3485,7 +3485,7 @@
     "section": "Câu Hỏi Đơn (Single Choice)",
     "image": "images/NWC303/slide_101.png",
     "missing_image": false,
-    "question_text": "Which address does a DHCPv4 server target when sending a DHCPOFFER message to a client that makes\nan address request?",
+    "question_text": "Which address does a DHCPv4 server target when sending a DHCPOFFER message to a client that makes an address request?",
     "type": "single",
     "options": [
       {
@@ -3508,11 +3508,11 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: client hardware address)\n\n📝 Dịch đề:\nMáy chủ DHCPv4 nhắm mục tiêu vào địa chỉ nào khi gửi tin nhắn DHCPOFFER tới máy khách khiến\nmột yêu cầu địa chỉ?\n\n📋 Dịch đáp án:\n- B: client hardware address\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nMáy chủ DHCPv4 cho thuê địa chỉ IPv4 từ một nhóm trong một khoảng thời gian do quản trị viên xác định, thường dao động từ 24 giờ đến một tuần hoặc hơn, sau đó máy khách phải yêu cầu gia hạn hợp đồng thuê hoặc trả lại địa chỉ cho nhóm.\n\n💡 Mẹo nhớ: Đáp án B (client hardware address)",
+    "explanation": "🎯 Đáp án đúng: B (B: client hardware address)\n\n📝 Dịch đề:\nMáy chủ DHCPv4 nhắm mục tiêu vào địa chỉ nào khi gửi thông điệp DHCPOFFER tới một máy khách đang gửi yêu cầu xin cấp địa chỉ?\n\n📋 Dịch đáp án:\n- B: Địa chỉ phần cứng (địa chỉ MAC) của máy khách\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo chuẩn IETF RFC 2131 Section 4.1 và Module 7.1.3 [L1290], khi máy khách gửi `DHCPDISCOVER`, máy khách chưa có địa chỉ IPv4 hợp lệ; do đó máy chủ DHCPv4 khi phản hồi gói `DHCPOFFER` sẽ nhắm mục tiêu tới địa chỉ phần cứng (địa chỉ MAC / `client hardware address` - B) của máy khách.\n\n💡 Mẹo nhớ: Đáp án B (client hardware address)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1311-L1325)",
     "theory_excerpt": "[L1311] 2.2. Steps to Configure a Cisco IOS DHCPv4 Server:\n[L1312] - Use the following steps to configure a Cisco IOS DHCPv4 server:\n[L1313] (Sử dụng các bước sau để cấu hình máy chủ DHCPv4 trên Cisco IOS:)\n[L1314] + Step 1: Exclude IPv4 addresses that are manually assigned to routers, servers, or printers using the 'ip dhcp excluded-address low-address [high-address]' command, which can be entered multiple times.\n[L1315] (Bước 1: Loại trừ các địa chỉ IPv4 được gán thủ công cho bộ định tuyến, máy chủ hoặc máy in bằng lệnh 'ip dhcp excluded-address low-address [high-address]', lệnh này có thể được nhập nhiều lần.)\n[L1316] + Step 2: Define a DHCPv4 pool name using the 'ip dhcp pool pool-name' command, which creates the pool and puts the router in DHCPv4 configuration mode, identified by the 'Router(dhcp-config)#' prompt.\n[L1317] (Bước 2: Xác định tên nhóm DHCPv4 bằng lệnh 'ip dhcp pool pool-name', lệnh này tạo nhóm và đưa bộ định tuyến vào chế độ cấu hình DHCPv4, được nhận diện bởi dấu nhắc 'Router(dhcp-config)#'.)\n[L1318] + Step 3: Configure the DHCPv4 pool by defining the required address pool and default gateway router, along with other optional commands:\n[L1319] (Bước 3: Cấu hình nhóm DHCPv4 bằng cách xác định nhóm địa chỉ và bộ định tuyến cổng mặc định bắt buộc, cùng với các lệnh tùy chọn khác:)\n[L1320] (x) Define the address pool: 'network network-number [mask | / prefix-length]'\n[L1321] (Xác định nhóm địa chỉ: 'network network-number [mask | / prefix-length]')\n[L1322] (x) Define the default router or gateway: 'default-router address [address2….address8]'\n[L1323] (Xác định bộ định tuyến hoặc cổng mặc định: 'default-router address [address2….address8]')\n[L1324] (x) Define a DNS server: 'dns-server address [address2…address8]'\n[L1325] (Xác định máy chủ DNS: 'dns-server address [address2…address8]')",
     "slide_comment": "",
-    "question_translation": "Máy chủ DHCPv4 nhắm mục tiêu vào địa chỉ nào khi gửi tin nhắn DHCPOFFER tới máy khách khiến\nmột yêu cầu địa chỉ?"
+    "question_translation": "Máy chủ DHCPv4 nhắm mục tiêu vào địa chỉ nào khi gửi thông điệp DHCPOFFER tới một máy khách đang gửi yêu cầu xin cấp địa chỉ?"
   },
   {
     "id": 92,
