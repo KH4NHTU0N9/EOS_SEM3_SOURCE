@@ -7953,7 +7953,7 @@
     "section": "Câu Hỏi Đơn (Single Choice)",
     "image": "images/NWC303/slide_225.png",
     "missing_image": false,
-    "question_text": "Which of the following best describes the role of the authentication server in 802. 1X?",
+    "question_text": "Which of the following best describes the role of the authentication server in 802.1X?",
     "type": "single",
     "options": [
       {
@@ -7966,7 +7966,7 @@
       },
       {
         "key": "C",
-        "text": "It provides IP addresses to clients on the network O RU"
+        "text": "It provides IP addresses to clients on the network"
       },
       {
         "key": "D",
@@ -7976,11 +7976,11 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: It verifies the client's identity and grants access to the LAN)\n\n📝 Dịch đề:\nCâu nào sau đây mô tả đúng nhất vai trò của máy chủ xác thực trong 802. 1X?\n\n📋 Dịch đáp án:\n- B: It verifies the client's identity and grants access to the LAN\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nMáy chủ xác thực: Xác nhận danh tính của ứng dụng khách và thông báo cho switch hoặc điểm truy cập không dây về việc ứng dụng khách có được phép truy cập vào mạng LAN và các dịch vụ của switch hay không.\n\n💡 Mẹo nhớ: Đáp án B (It verifies the client's identity and grants access to the LAN)",
+    "explanation": "🎯 Đáp án đúng: B (B: It verifies the client's identity and grants access to the LAN)\n\n📝 Dịch đề:\nPhát biểu nào sau đây mô tả đúng nhất vai trò của máy chủ xác thực (authentication server) trong chuẩn 802.1X?\n\n📋 Dịch đáp án:\n- B: Xác minh danh tính của máy khách và cấp quyền truy cập vào mạng LAN\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nMáy chủ xác thực: Xác nhận danh tính của ứng dụng khách và thông báo cho switch hoặc điểm truy cập không dây về việc ứng dụng khách có được phép truy cập vào mạng LAN và các dịch vụ của switch hay không.\n\n💡 Mẹo nhớ: Đáp án B (It verifies the client's identity and grants access to the LAN)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1816-L1830)",
     "theory_excerpt": "[L1816] (Kết hợp với xác thực AAA, máy chủ AAA giữ một nhật ký chi tiết về chính xác những gì người dùng được xác thực làm trên thiết bị, bao gồm tất cả các lệnh EXEC và cấu hình đã ban hành, rất hữu ích khi khắc phục sự cố hoặc cung cấp bằng chứng về các hành vi độc hại.)\n[L1817] 2.6. 802.1X:\n[L1818] - The IEEE 802.1X standard is a port-based access control and authentication protocol that restricts unauthorized workstations from connecting to a LAN through publicly accessible switch ports until an authentication server authenticates each workstation.\n[L1819] (Tiêu chuẩn IEEE 802.1X là giao thức xác thực và kiểm soát truy cập dựa trên cổng, hạn chế các máy trạm trái phép kết nối với mạng LAN thông qua các cổng switch có thể truy cập công khai cho đến khi máy chủ xác thực xác nhận từng máy trạm.)\n[L1820] - The devices in an 802.1X port-based authentication network have specific roles:\n[L1821] (Các thiết bị trong mạng xác thực dựa trên cổng 802.1X có các vai trò cụ thể:)\n[L1822] + Client (Supplicant): A wired or wireless device running 802.1X-compliant client software.\n[L1823] (Ứng dụng khách (Supplicant): Một thiết bị có dây hoặc không dây chạy phần mềm ứng dụng khách tuân thủ 802.1X.)\n[L1824] + Switch (Authenticator): Acts as an intermediary between the client and the authentication server, requesting identifying information from the client, verifying it with the server, and relaying a response.\n[L1825] (Switch (Bộ xác thực): Đóng vai trò trung gian giữa ứng dụng khách và máy chủ xác thực, yêu cầu thông tin nhận dạng từ ứng dụng khách, xác minh thông tin đó với máy chủ và chuyển tiếp phản hồi.)\n[L1826] + Authentication server: Validates the identity of the client and notifies the switch or wireless access point whether the client is authorized to access the LAN and switch services.\n[L1827] (Máy chủ xác thực: Xác nhận danh tính của ứng dụng khách và thông báo cho switch hoặc điểm truy cập không dây về việc ứng dụng khách có được phép truy cập vào mạng LAN và các dịch vụ của switch hay không.)\n[L1828] 3. Layer 2 Security Threats:\n[L1829] 3.1. Layer 2 Vulnerabilities:\n[L1830] - Layer 2 security is critical because if Layer 2 is compromised, all security measures implemented on upper layers (such as VPNs, firewalls, and IPS) can be bypassed, rendering them useless.",
     "slide_comment": "Vai trò của máy chủ xác thực (authentication server) trong 802.1X là gì? B. Xác minh danh tính của client và cấp quyền truy cập vào mạng LAN (It verifies the client's identity and grants access to the LAN). Authentication Server (thường là RADIUS) xác thực người dùng trước khi cho phép truy cập mạng.",
-    "question_translation": "Câu nào sau đây mô tả đúng nhất vai trò của máy chủ xác thực trong 802. 1X?"
+    "question_translation": "Phát biểu nào sau đây mô tả đúng nhất vai trò của máy chủ xác thực (authentication server) trong chuẩn 802.1X?"
   },
   {
     "id": 215,
