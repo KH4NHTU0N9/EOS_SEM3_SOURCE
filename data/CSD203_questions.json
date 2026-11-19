@@ -15710,7 +15710,10 @@
     "question_translation": "Trong một danh sách liên kết vòng (circular linked list), điều gì xảy ra khi con trỏ `next` của nút đuôi (`tail`) được gán `None`?",
     "default_bookmark": true,
     "is_multi": false,
-    "suspect_answer": "A & C (Cả hai mệnh đề A và C đều đúng về kỹ thuật khi danh sách còn con trỏ head)"
+    "suspect_answer": "A & C (Cả hai mệnh đề A và C đều đúng về kỹ thuật khi danh sách còn con trỏ head)",
+    "alt_answers": [
+      "C"
+    ]
   },
   {
     "id": 429,
