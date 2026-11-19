@@ -80,6 +80,7 @@
     .rt .rt-math { font-family: 'Cambria Math', 'STIX Two Math', Georgia, serif; font-style: normal; white-space: nowrap; }
     .rt strong { font-weight: 800; color: #0f172a; }
     .exp-head { font-weight: 800; font-size: 14px; color: #065f46; background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 6px; padding: 0.35em 0.7em; }
+    .exp-alt-head { font-weight: 800; font-size: 13.5px; color: #581c87; background: #f3e8ff; border: 1px solid #a855f7; border-radius: 6px; padding: 0.35em 0.7em; margin-top: 0.35em; }
     .exp-sec { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.6em 0.8em; }
     .exp-sec-title { font-weight: 800; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.02em; color: #1e3a8a; margin-bottom: 0.35em; }
     .exp-tip { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 6px; padding: 0.45em 0.75em; color: #78350f; }
@@ -263,7 +264,7 @@
           <span id="badgeSlideNum" class="text-gray-600 font-normal ml-1">(Slide #18)</span>
           <span id="badgeType" class="ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-yellow-100 text-amber-900 border border-amber-400">Chọn 1 đáp án</span>
           <span id="badgeComment" class="hidden ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-amber-100 text-amber-900 border border-amber-400 font-bold">💬 Có Note Slide</span>
-          <span id="badgeSuspect" class="hidden ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-rose-100 text-rose-900 border border-rose-400 font-bold" title="Đáp án trên đề gốc có điểm nghi vấn học thuật — mở Giải thích để xem chi tiết">⚠️ Nghi vấn đáp án</span>
+          <span id="badgeSuspect" class="hidden ml-1.5 px-1.5 py-0.5 text-[11px] rounded bg-purple-100 text-purple-900 border border-purple-500 font-bold shadow-xs" title="Câu hỏi được đánh dấu màu tím — có phương án đáp án thứ 2 hoặc lưu ý học thuật">🟣 Đáp án thứ 2</span>
         </div>
         <div class="flex items-center gap-1.5">
           <button onclick="toggleCurrentBookmark()" id="btnHeaderBookmark" title="Phím tắt: F" class="eos-btn px-2.5 py-0.5 text-xs flex items-center gap-1 font-semibold text-amber-950 hover:bg-amber-100 border-amber-400">
@@ -332,6 +333,12 @@
           <div class="flex flex-wrap items-center justify-between gap-2 pb-1.5 border-b border-emerald-200">
             <span id="feedbackTitle" class="font-bold text-sm text-emerald-900">💡 GIẢI THÍCH TRỌNG TÂM & MẸO NHỚ</span>
             <span id="feedbackCorrectBadge" class="font-mono font-bold px-2 py-0.5 bg-white border border-emerald-300 rounded text-emerald-800"></span>
+          </div>
+          <div id="suspectAnswerBox" class="hidden p-2.5 rounded border-2 border-purple-500 bg-purple-50 text-purple-950 text-xs sm:text-sm font-medium shadow-xs">
+            <div class="font-bold text-purple-900 flex items-center gap-1.5 mb-1 text-[13px]">
+              <span>🟣</span> Option Đáp Án Thứ 2 &amp; Lưu Ý Kiểm Toán:
+            </div>
+            <div id="suspectAnswerText" class="text-purple-950 font-normal leading-relaxed whitespace-pre-line"></div>
           </div>
           <div id="slideCommentBox" class="hidden p-2.5 rounded border border-amber-400 bg-amber-50 text-amber-950 text-xs sm:text-sm font-medium">
             <div class="font-bold text-amber-900 flex items-center gap-1.5 mb-1 text-[13px]">
