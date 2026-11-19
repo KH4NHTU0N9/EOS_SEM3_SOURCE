@@ -1427,7 +1427,7 @@
     "answers": [
       "C"
     ],
-    "explanation": "🎯 Đáp án đúng: C (C: 547)\n\n📝 Dịch đề:\nMáy khách DHCPv6 sử dụng cổng đích UDP nào để gửi các bản tin DHCPv6 tới máy chủ?\n\n📋 Dịch đáp án:\n- C: 547\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nCác bản tin DHCPv6 gửi từ máy khách đến máy chủ (client to server) sử dụng cổng đích UDP 547 (C), còn các bản tin từ máy chủ đến máy khách (server to client) sử dụng cổng đích UDP 546 (D). Cổng 67 và 68 được dùng bởi DHCPv4.\n\n💡 Mẹo nhớ: Đáp án C (547)",
+    "explanation": "🎯 Đáp án đúng: C (C: 547)\n\n📝 Dịch đề:\nMáy khách DHCPv6 sử dụng cổng đích UDP nào để gửi các bản tin DHCPv6 tới máy chủ?\n\n📋 Dịch đáp án:\n- C: Cổng UDP 547 (cổng lắng nghe của máy chủ DHCPv6)\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nCác bản tin DHCPv6 gửi từ máy khách đến máy chủ (client to server) sử dụng cổng đích UDP 547 (C), còn các bản tin từ máy chủ đến máy khách (server to client) sử dụng cổng đích UDP 546 (D). Cổng 67 và 68 được dùng bởi DHCPv4.\n\n💡 Mẹo nhớ: Đáp án C (547)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - Module 8. SLAAC & DHCPv6 - 3.1. DHCPv6 Operation Steps (L1516-L1517)",
     "theory_excerpt": "[L1516] - Server to client DHCPv6 messages use UDP destination port 546, while client to server DHCPv6 messages use UDP destination port 547.\n[L1517] (Thông báo DHCPv6 từ máy chủ đến máy khách sử dụng cổng đích UDP 546, trong khi thông báo DHCPv6 từ máy khách đến máy chủ sử dụng cổng đích UDP 547.)",
     "slide_comment": "",
