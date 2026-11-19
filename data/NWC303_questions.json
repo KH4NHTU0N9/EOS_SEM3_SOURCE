@@ -6730,7 +6730,7 @@
       },
       {
         "key": "C",
-        "text": "The A flag (Address Autoconfiguration flag). |"
+        "text": "The A flag (Address Autoconfiguration flag)."
       },
       {
         "key": "D",
@@ -6740,11 +6740,11 @@
     "answers": [
       "C"
     ],
-    "explanation": "🎯 Đáp án đúng: C (C: The A flag (Address Autoconfiguration flag). |)\n\n📝 Dịch đề:\ncờ hich trong thông báo ICMPv6 RA cho biết rằng máy chủ nên sử dụng SLAAC để tạo IPv6 Global\nĐịa chỉ Unicast (GUA)?\n\n📋 Dịch đáp án:\n- C: The A flag (Address Autoconfiguration flag). |\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nNếu cả cờ M (Managed) và cờ A (Autoconfiguration) đều được đặt là 1 trong RA mà máy chủ nhận được, máy chủ sẽ cố gắng sử dụng cả SLAAC và DHCPv6 có trạng thái để lấy cấu hình IPv6 của nó, điều này có thể dẫn đến việc có hai địa chỉ hoặc xung đột không mong muốn.\n\n💡 Mẹo nhớ: Đáp án C (The A flag (Address Autoconfiguration flag). |)",
+    "explanation": "🎯 Đáp án đúng: C (C: The A flag (Address Autoconfiguration flag).)\n\n📝 Dịch đề:\nCờ nào trong thông điệp ICMPv6 RA cho máy trạm (host) biết rằng nó nên sử dụng SLAAC để tạo địa chỉ IPv6 Toàn cầu (GUA)?\n\n📋 Dịch đáp án:\n- C: Cờ A (Address Autoconfiguration flag — chỉ thị host dùng SLAAC tạo GUA).\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo chuẩn IETF RFC 4861 Section 4.6.2 và Module 8.1.4 [L1435-L1436], trong thông điệp ICMPv6 RA, cờ A (`The A flag (Address Autoconfiguration flag).` - C) khi bằng 1 chỉ thị cho máy trạm sử dụng SLAAC để tự tạo địa chỉ IPv6 toàn cầu (GUA).\n\n💡 Mẹo nhớ: Đáp án C (The A flag (Address Autoconfiguration flag).)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1431-L1445)",
     "theory_excerpt": "[L1431] (Mặc dù hệ điều hành máy chủ tuân theo gợi ý của RA, nhưng quyết định thực tế cuối cùng vẫn do máy chủ tự định đoạt.)\n[L1432] 1.4. Three RA Message Flags:\n[L1433] - How a client obtains an IPv6 GUA depends on settings in the RA message, which includes three flags to inform the host about the dynamic options available:\n[L1434] (Cách máy khách lấy GUA IPv6 phụ thuộc vào các cài đặt trong thông báo RA, bao gồm ba cờ để thông báo cho máy chủ về các tùy chọn động khả dụng:)\n[L1435] + A flag (Address Autoconfiguration): Signifies to use Stateless Address Autoconfiguration (SLAAC) to create an IPv6 GUA.\n[L1436] (Cờ A (Tự động cấu hình Địa chỉ): Cho biết sử dụng Tự động Cấu hình Địa chỉ Không trạng thái (SLAAC) để tạo GUA IPv6.)\n[L1437] + O flag (Other Configuration): Signifies that additional information is available from a stateless DHCPv6 server.\n[L1438] (Cờ O (Cấu hình Khác): Cho biết thông tin bổ sung có sẵn từ máy chủ DHCPv6 không trạng thái.)\n[L1439] + M flag (Managed Address Configuration): Signifies to use a stateful DHCPv6 server to obtain an IPv6 GUA.\n[L1440] (Cờ M (Cấu hình Địa chỉ được Quản lý): Cho biết sử dụng máy chủ DHCPv6 có trạng thái để lấy GUA IPv6.)\n[L1441] - If both the M (Managed) and A (Autoconfiguration) flags are set to 1 in an RA received by a host, the host will attempt to use both SLAAC and Stateful DHCPv6 to acquire its IPv6 configuration, which can lead to unexpected dual addressing or conflicts.\n[L1442] (Nếu cả cờ M (Managed) và cờ A (Autoconfiguration) đều được đặt là 1 trong RA mà máy chủ nhận được, máy chủ sẽ cố gắng sử dụng cả SLAAC và DHCPv6 có trạng thái để lấy cấu hình IPv6 của nó, điều này có thể dẫn đến việc có hai địa chỉ hoặc xung đột không mong muốn.)\n[L1443] 2. SLAAC:\n[L1444] 2.1. SLAAC Overview:\n[L1445] - The SLAAC method enables hosts to create their own unique IPv6 global unicast address without the services of a DHCPv6 server, making it essential because not every network has access to a DHCPv6 server but every device needs a GUA.",
     "slide_comment": "",
-    "question_translation": "Cờ (flag) nào trong gói tin ICMPv6 Router Advertisement (RA) chỉ thị rằng máy chủ (host) nên sử dụng SLAAC để tự động tạo địa chỉ IPv6 Global Unicast (GUA)?"
+    "question_translation": "Cờ nào trong thông điệp ICMPv6 RA cho máy trạm (host) biết rằng nó nên sử dụng SLAAC để tạo địa chỉ IPv6 Toàn cầu (GUA)?"
   },
   {
     "id": 181,
