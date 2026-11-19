@@ -449,6 +449,10 @@
           <span>Đã Skip</span>
         </div>
         <div class="flex items-center gap-1.5 col-span-2">
+          <span class="w-3.5 h-3.5 bg-purple-100 border-2 border-purple-600 inline-block"></span>
+          <span class="text-purple-900 font-semibold">Màu tím 🟣: Có Đáp án 2 / Lưu ý</span>
+        </div>
+        <div class="flex items-center gap-1.5 col-span-2">
           <span class="w-3.5 h-3.5 bg-amber-100 border border-amber-400 text-amber-600 text-[11px] font-bold flex items-center justify-center">★</span>
           <span>Có góc sao ★: Đã đánh dấu</span>
         </div>
@@ -1570,6 +1574,7 @@
       list.forEach((q, idx) => {
         const isCurrent = idx === subjState.currentIndex;
         const isBookmarked = !!subjState.bookmarks[q.id];
+        const isPurple = isPurpleQuestion(q);
         const rec = subjState.answered[q.id];
         const draft = examDraftAnswers[q.id];
 
@@ -1582,15 +1587,22 @@
           rowCls += 'bg-blue-100 text-[#0000CC] font-bold';
         } else if (rec) {
           if (rec.isSkipped) rowCls += 'bg-amber-100 text-amber-950 font-semibold';
+          else if (rec.isAltMatch) rowCls += 'bg-purple-200 text-purple-950 font-semibold';
           else if (rec.isCorrect) rowCls += 'bg-emerald-100 text-emerald-900 font-semibold';
           else rowCls += 'bg-rose-100 text-rose-900 font-semibold';
+        } else if (isPurple) {
+          rowCls += 'bg-purple-100 text-purple-950 font-semibold border-l-4 border-purple-600 hover:bg-purple-200';
         } else {
           rowCls += 'hover:bg-gray-200 text-gray-900';
         }
         row.className = rowCls;
         let badgeHtml = '';
+        if (isPurple) {
+          badgeHtml += '<span class="text-[10px] mr-0.5" title="Câu đánh dấu tím — có Đáp án 2 / Lưu ý">🟣</span>';
+        }
         if (rec) {
           if (rec.isSkipped) badgeHtml += '<span class="text-amber-600 font-bold mr-1">⏭</span>';
+          else if (rec.isAltMatch) badgeHtml += '<span class="text-purple-800 font-bold mr-1">✓2</span>';
           else if (rec.isCorrect) badgeHtml += '<span class="text-emerald-700 font-bold mr-1">✓</span>';
           else badgeHtml += '<span class="text-rose-700 font-bold mr-1">✗</span>';
         }
@@ -1621,24 +1633,36 @@
         if (appState.mode === 'exam' && !examRevealed) {
           if (draft && draft.length > 0) {
             boxCls += 'bg-blue-700 border-blue-900 text-white';
+          } else if (isPurple) {
+            boxCls += 'bg-purple-100 border-2 border-purple-600 text-purple-950 hover:bg-purple-200';
           } else {
             boxCls += 'bg-white border-gray-400 text-gray-800 hover:bg-gray-100';
           }
         } else {
           if (rec) {
             if (rec.isSkipped) boxCls += 'bg-amber-500 border-amber-700 text-white';
+            else if (rec.isAltMatch) boxCls += 'bg-purple-600 border-purple-900 text-white';
             else if (rec.isCorrect) boxCls += 'bg-emerald-600 border-emerald-800 text-white';
             else boxCls += 'bg-rose-600 border-rose-800 text-white';
+          } else if (isPurple) {
+            boxCls += 'bg-purple-100 border-2 border-purple-600 text-purple-950 hover:bg-purple-200';
           } else {
             boxCls += 'bg-white border-gray-400 text-gray-800 hover:bg-gray-100';
           }
         }
 
+        const purpleDotHtml = isPurple
+          ? '<span class="absolute -bottom-0.5 -left-0.5 w-2.5 h-2.5 rounded-full bg-purple-600 border border-white shadow-xs select-none" title="Màu tím: Có Đáp án 2 / Lưu ý"></span>'
+          : '';
+        const purpleTitle = isPurple
+          ? (q.alt_answers && q.alt_answers.length > 0 ? ` [🟣 Đáp án 2: ${q.alt_answers.join(', ')}]` : ' [🟣 Lưu ý học thuật]')
+          : '';
+
         const makeCell = (closeMobile) => {
           const btn = document.createElement('button');
           btn.className = boxCls;
-          btn.title = `Câu ${idx + 1} (Slide #${q.slide_num})${isBookmarked ? ' [Đã đánh dấu ★]' : ''}`;
-          btn.innerHTML = `<span>${idx + 1}</span>${isBookmarked ? '<span class="absolute -top-1 -right-0.5 text-[11px] leading-none text-amber-400 font-black drop-shadow select-none">★</span>' : ''}`;
+          btn.title = `Câu ${idx + 1} (Slide #${q.slide_num})${purpleTitle}${isBookmarked ? ' [Đã đánh dấu ★]' : ''}`;
+          btn.innerHTML = `<span>${idx + 1}</span>${purpleDotHtml}${isBookmarked ? '<span class="absolute -top-1 -right-0.5 text-[11px] leading-none text-amber-400 font-black drop-shadow select-none">★</span>' : ''}`;
           btn.onclick = () => jumpToIndex(idx, closeMobile);
           return btn;
         };
