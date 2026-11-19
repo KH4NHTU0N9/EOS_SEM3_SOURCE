@@ -880,7 +880,8 @@
             const sel = examDraftAnswers[q.id];
             subjState.answered[q.id] = {
               selected: sel,
-              isCorrect: arraysEqualIgnoreOrder(sel, q.answers)
+              isCorrect: isAnswerAccepted(sel, q),
+              isAltMatch: isAltAnswerMatch(sel, q) && !arraysEqualIgnoreOrder(sel, q.answers)
             };
           }
         });
@@ -927,7 +928,8 @@
             const sel = examDraftAnswers[q.id];
             subjState.answered[q.id] = {
               selected: sel,
-              isCorrect: arraysEqualIgnoreOrder(sel, q.answers)
+              isCorrect: isAnswerAccepted(sel, q),
+              isAltMatch: isAltAnswerMatch(sel, q) && !arraysEqualIgnoreOrder(sel, q.answers)
             };
           }
         });
@@ -1503,7 +1505,11 @@
         if (ansRecord.isSkipped) {
           expContainer.className = 'flex flex-col gap-2.5 p-3.5 rounded border bg-amber-50 border-amber-500 text-xs sm:text-sm';
           fbTitle.className = 'font-bold text-amber-900';
-          fbTitle.textContent = `⏭ ĐÃ SKIP (BỎ QUA) — ĐÁP ÁN ĐÚNG: ${q.answers.join(', ')}`;
+          fbTitle.textContent = `⏭ ĐÃ SKIP (BỎ QUA) — ĐÁP ÁN 1: ${q.answers.join(', ')}${hasAltAnswers ? ` | 🟣 ĐÁP ÁN 2: ${q.alt_answers.join(', ')}` : ''}`;
+        } else if (ansRecord.isAltMatch) {
+          expContainer.className = 'flex flex-col gap-2.5 p-3.5 rounded border-2 bg-purple-50 border-purple-500 text-xs sm:text-sm';
+          fbTitle.className = 'font-bold text-purple-900';
+          fbTitle.textContent = `🟣 CHÍNH XÁC THEO ĐÁP ÁN THỨ 2 (${ansRecord.selected.join(', ')}) — Đáp án 1: ${q.answers.join(', ')}`;
         } else if (ansRecord.isCorrect) {
           expContainer.className = 'flex flex-col gap-2.5 p-3.5 rounded border bg-emerald-50 border-emerald-500 text-xs sm:text-sm';
           fbTitle.className = 'font-bold text-emerald-800';
@@ -1658,8 +1664,9 @@
         renderCurrentQuestion();
       } else {
         const selected = [key];
-        const isCorrect = arraysEqualIgnoreOrder(selected, q.answers);
-        subjState.answered[q.id] = { selected, isCorrect };
+        const isCorrect = isAnswerAccepted(selected, q);
+        const isAltMatch = isAltAnswerMatch(selected, q) && !arraysEqualIgnoreOrder(selected, q.answers);
+        subjState.answered[q.id] = { selected, isCorrect, isAltMatch };
         saveState();
         renderAll();
       }
@@ -1673,8 +1680,9 @@
       const q = list[subjState.currentIndex];
 
       const selected = [...tempMultiSelection].sort();
-      const isCorrect = arraysEqualIgnoreOrder(selected, q.answers);
-      subjState.answered[q.id] = { selected, isCorrect };
+      const isCorrect = isAnswerAccepted(selected, q);
+      const isAltMatch = isAltAnswerMatch(selected, q) && !arraysEqualIgnoreOrder(selected, q.answers);
+      subjState.answered[q.id] = { selected, isCorrect, isAltMatch };
       tempMultiSelection.clear();
       saveState();
       renderAll();
