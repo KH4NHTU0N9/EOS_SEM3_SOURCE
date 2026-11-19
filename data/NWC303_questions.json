@@ -7665,7 +7665,7 @@
     "section": "Câu Hỏi Đơn (Single Choice)",
     "image": "images/NWC303/slide_217.png",
     "missing_image": false,
-    "question_text": "Assume the administrator has entered the ip route 192.168.10.0 255.255.255.0 10.10.10.2 5 command. How\nwould an administrator test this configuration?",
+    "question_text": "Assume the administrator has entered the ip route 192.168.10.0 255.255.255.0 10.10.10.2 5 command. How would an administrator test this configuration?",
     "type": "single",
     "options": [
       {
@@ -7678,7 +7678,7 @@
       },
       {
         "key": "C",
-        "text": "Ping any valid address on the 192. 168. 10.0/24 network. U"
+        "text": "Ping any valid address on the 192.168.10.0/24 network."
       },
       {
         "key": "D",
@@ -7688,11 +7688,11 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: Manually shut down the router interface used as a primary route.)\n\n📝 Dịch đề:\nGiả sử quản trị viên đã nhập lệnh ip Route 192.168.10.0 255.255.255.0 10.10.10.2 5. Làm thế nào\nquản trị viên có thể kiểm tra cấu hình này không?\n\n📋 Dịch đáp án:\n- B: Manually shut down the router interface used as a primary route.\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nNếu giao diện bị ngừng về mặt quản trị, nó đã bị vô hiệu hóa thủ công (lệnh 'shutdown' đã được ban hành) trong cấu hình hoạt động.\n\n💡 Mẹo nhớ: Đáp án B (Manually shut down the router interface used as a primary route.)",
+    "explanation": "🎯 Đáp án đúng: B (B: Manually shut down the router interface used as a primary route.)\n\n📝 Dịch đề:\nGiả sử quản trị viên đã nhập lệnh ip route 192.168.10.0 255.255.255.0 10.10.10.2 5. Quản trị viên sẽ kiểm tra cấu hình này như thế nào?\n\n📋 Dịch đáp án:\n- B: Tắt thủ công (shutdown) giao diện router đang dùng cho tuyến đường chính để kiểm tra tuyến dự phòng.\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo Module 15.4.1 & 15.4.2 [L3006-L3022], lệnh `ip route 192.168.10.0 255.255.255.0 10.10.10.2 5` cấu hình một tuyến tĩnh nổi (floating static route) có AD = 5 làm tuyến dự phòng. Để kiểm tra tuyến dự phòng có tự kích hoạt hay không, quản trị viên tắt thủ công cổng của tuyến chính (`Manually shut down the router interface used as a primary route.` - B).\n\n💡 Mẹo nhớ: Đáp án B (Manually shut down the router interface used as a primary route.)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1716-L1730)",
     "theory_excerpt": "[L1716] - The role of the active and standby routers is determined during the HSRP election process, where, by default, the router with the numerically highest IPv4 address is elected as the active router.\n[L1717] (Vai trò của các bộ định tuyến hoạt động và dự phòng được xác định trong quá trình bầu chọn HSRP, trong đó, theo mặc định, bộ định tuyến có địa chỉ IPv4 cao nhất theo số lượng được bầu làm bộ định tuyến hoạt động.)\n[L1718] - To better control network operations, HSRP priority can be used to determine the active router, where the router with the highest HSRP priority (default is 100) will become the active router.\n[L1719] (Để kiểm soát hoạt động mạng tốt hơn, ưu tiên HSRP có thể được sử dụng để xác định bộ định tuyến hoạt động, trong đó bộ định tuyến có mức ưu tiên HSRP cao nhất (mặc định là 100) sẽ trở thành bộ định tuyến hoạt động.)\n[L1720] - If the priorities are equal, the router with the numerically highest IPv4 address is elected as the active router.\n[L1721] (Nếu các mức ưu tiên bằng nhau, bộ định tuyến có địa chỉ IPv4 cao nhất theo số lượng sẽ được bầu làm bộ định tuyến hoạt động.)\n[L1722] - To configure a router to be the active router, use the 'standby priority' interface command, which accepts a range from 0 to 255.\n[L1723] (Để cấu hình một bộ định tuyến trở thành bộ định tuyến hoạt động, sử dụng lệnh giao diện 'standby priority', chấp nhận dải từ 0 đến 255.)\n[L1724] - By default, after a router becomes the active router, it will remain the active router even if another router comes online with a higher HSRP priority.\n[L1725] (Theo mặc định, sau khi một bộ định tuyến trở thành bộ định tuyến hoạt động, nó sẽ vẫn là bộ định tuyến hoạt động ngay cả khi một bộ định tuyến khác trực tuyến với mức ưu tiên HSRP cao hơn.)\n[L1726] - To force a new HSRP election process to take place when a higher-priority router comes online, preemption must be enabled using the 'standby preempt' interface command.\n[L1727] (Để buộc một quá trình bầu chọn HSRP mới diễn ra khi một bộ định tuyến có độ ưu tiên cao hơn trực tuyến, tính năng ưu tiên chiếm quyền (preemption) phải được bật bằng lệnh giao diện 'standby preempt'.)\n[L1728] - Preemption allows a router to trigger the re-election process and assume the role of the active router, but only if it has a higher priority, meaning a router with equal priority but a higher IPv4 address will not preempt an active router.\n[L1729] (Ưu tiên chiếm quyền cho phép một bộ định tuyến kích hoạt quá trình bầu chọn lại và đảm nhận vai trò của bộ định tuyến hoạt động, nhưng chỉ khi nó có mức ưu tiên cao hơn, có nghĩa là một bộ định tuyến có mức ưu tiên tương đương nhưng địa chỉ IPv4 cao hơn sẽ không chiếm quyền của bộ định tuyến đang hoạt động.)\n[L1730] - With preemption disabled, the router that boots up first will become the active router if there are no other routers online during the election process.",
     "slide_comment": "Quản trị viên đã cấu hình lệnh ip route 192.168.10.0 255.255.255.0 10.10.10.2 5. Làm thế nào để kiểm tra cấu hình này? B. Tắt thủ công (shutdown) giao diện router đang được dùng làm tuyến chính (Manually shut down the router interface used as a primary route). Đây là floating static route (AD = 5). Muốn kiểm tra nó hoạt động, cần làm cho tuyến chính bị lỗi để tuyến dự phòng được sử dụng.",
-    "question_translation": "Giả sử quản trị viên đã nhập lệnh ip Route 192.168.10.0 255.255.255.0 10.10.10.2 5. Làm thế nào\nquản trị viên có thể kiểm tra cấu hình này không?"
+    "question_translation": "Giả sử quản trị viên đã nhập lệnh ip route 192.168.10.0 255.255.255.0 10.10.10.2 5. Quản trị viên sẽ kiểm tra cấu hình này như thế nào?"
   },
   {
     "id": 207,
