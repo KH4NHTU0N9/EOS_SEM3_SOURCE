@@ -2790,7 +2790,10 @@
     "question_translation": "Xét một hàm băm phân phối các khóa đồng đều (uniformly) vào bảng băm có kích thước 20. Sau khi băm bao nhiêu khóa thì xác suất một khóa mới bất kỳ bị đụng độ (collide) với khóa đã có sẽ vượt quá 0.5?",
     "is_multi": false,
     "default_bookmark": true,
-    "suspect_answer": "D (15) — hoặc 11 (OA) / 14 (Chaining) ngoài đề vì đề ghi \"exceed 0.5\" (> 0.5)"
+    "suspect_answer": "D (15) — hoặc 11 (OA) / 14 (Chaining) ngoài đề vì đề ghi \"exceed 0.5\" (> 0.5)",
+    "alt_answers": [
+      "D"
+    ]
   },
   {
     "id": 76,
