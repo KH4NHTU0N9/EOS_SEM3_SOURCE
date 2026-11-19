@@ -10974,7 +10974,10 @@
     "slide_comment": "⚠️ Nghi vấn đáp án (Key đề gốc A vs Runtime Python 3 B): Key EOS gốc giữ A (\"It runs into infinite loop\"), nhưng trong Python 3 (ngôn ngữ của môn CSD203), đệ quy thiếu base condition không lặp vô hạn mãi mà làm tràn call stack tại sys.getrecursionlimit() và ném ngoại lệ RecursionError (\"B. Exception is thrown\").",
     "question_translation": "Trong các chương trình đệ quy, điều gì xảy ra nếu điều kiện cơ bản không được xác định?",
     "default_bookmark": true,
-    "suspect_answer": "B (\"Exception is thrown\" — trong Python 3 thực tế, đệ quy thiếu base case ném RecursionError)"
+    "suspect_answer": "B (\"Exception is thrown\" — trong Python 3 thực tế, đệ quy thiếu base case ném RecursionError)",
+    "alt_answers": [
+      "B"
+    ]
   },
   {
     "id": 299,
