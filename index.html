@@ -1474,25 +1474,52 @@
       expEl.innerHTML = renderExplanationHTML(q.explanation || `🎯 Đáp án đúng: ${q.answers.join(', ')}`, q);
       document.getElementById('theoryExcerptText').textContent = q.theory_excerpt || '';
       document.getElementById('theoryCitationText').textContent = q.theory_citation || '';
-      fbBadge.textContent = `Đáp án đúng: ${q.answers.join(', ')}`;
+      fbBadge.textContent = hasAltAnswers
+        ? `Đáp án 1: ${q.answers.join(', ')} | 🟣 Đáp án 2: ${q.alt_answers.join(', ')}`
+        : `Đáp án đúng: ${q.answers.join(', ')}`;
 
-      // Slide Comment & Suspect Answer Badges
+      // Slide Comment & Purple 2nd-Answer / Suspect Badges
       const badgeComment = document.getElementById('badgeComment');
       const badgeSuspect = document.getElementById('badgeSuspect');
+      const suspectBox = document.getElementById('suspectAnswerBox');
+      const suspectText = document.getElementById('suspectAnswerText');
       const scBox = document.getElementById('slideCommentBox');
       const scText = document.getElementById('slideCommentText');
+      const isPurple = isPurpleQuestion(q);
       if (badgeSuspect) {
-        if (q.suspect_answer) badgeSuspect.classList.remove('hidden');
-        else badgeSuspect.classList.add('hidden');
+        if (isPurple) {
+          badgeSuspect.classList.remove('hidden');
+          badgeSuspect.textContent = hasAltAnswers
+            ? `🟣 Có Đáp án thứ 2 (${q.alt_answers.join(', ')})`
+            : '🟣 Lưu ý học thuật';
+        } else {
+          badgeSuspect.classList.add('hidden');
+        }
       }
-      const commentParts = [];
-      if (q.suspect_answer) commentParts.push(`⚠️ Đáp án nghi vấn khác key EOS: ${q.suspect_answer}`);
-      if (q.slide_comment && q.slide_comment.trim().length > 0) commentParts.push(q.slide_comment.trim());
-      if (commentParts.length > 0) {
+      if (suspectBox && suspectText) {
+        if (isPurple) {
+          suspectBox.classList.remove('hidden');
+          const parts = [];
+          if (hasAltAnswers) {
+            const altTexts = q.alt_answers.map(k => {
+              const found = (q.options || []).find(o => o.key === k);
+              return found ? `${k}. ${found.text}` : k;
+            }).join(' ; ');
+            parts.push(`Option Đáp án thứ 2: ${altTexts}`);
+          }
+          if (q.suspect_answer && q.suspect_answer.trim().length > 0) {
+            parts.push(q.suspect_answer.trim());
+          }
+          suspectText.textContent = parts.join('\n');
+        } else {
+          suspectBox.classList.add('hidden');
+        }
+      }
+      if (q.slide_comment && q.slide_comment.trim().length > 0) {
         if (badgeComment) badgeComment.classList.remove('hidden');
         if (scBox) {
           scBox.classList.remove('hidden');
-          scText.textContent = commentParts.join('\n');
+          scText.textContent = q.slide_comment.trim();
         }
       } else {
         if (badgeComment) badgeComment.classList.add('hidden');
@@ -2036,7 +2063,7 @@
     }
 
     // Split the structured explanation into sections and render them as cards.
-    const EXP_HEADERS = ['🎯', '📝', '📋', '💬', '📌', '❌', '✅', '💡'];
+    const EXP_HEADERS = ['🎯', '🟣', '📝', '📋', '💬', '📌', '❌', '✅', '💡'];
     function renderExplanationHTML(raw, q) {
       const text = String(raw || '').replace(/\r\n?/g, '\n').trim();
       const sections = [];
@@ -2064,6 +2091,9 @@
         const body = sec.body.join('\n').replace(/^\n+|\n+$/g, '');
         if (sec.icon === '🎯') {
           main += `<div class="exp-head">${renderInline(escapeHtml(sec.first))}</div>`;
+          if (body) main += `<div class="exp-sec">${renderRichText(body)}</div>`;
+        } else if (sec.icon === '🟣') {
+          main += `<div class="exp-alt-head">${renderInline(escapeHtml(sec.first))}</div>`;
           if (body) main += `<div class="exp-sec">${renderRichText(body)}</div>`;
         } else if (sec.icon === '📝' || sec.icon === '📋') {
           more += `<div class="exp-sec mb-2"><div class="exp-sec-title">${escapeHtml(sec.first.replace(/:$/, ''))}</div>${renderRichText(body)}</div>`;
