@@ -6641,7 +6641,7 @@
     "section": "Câu Hỏi Đơn (Single Choice)",
     "image": "images/NWC303/slide_189.png",
     "missing_image": false,
-    "question_text": "Which command must be configured on a router to enable it to join the IPv6 all-routers multicast address\nff02::2?",
+    "question_text": "Which command must be configured on a router to enable it to join the IPv6 all-routers multicast address ff02::2?",
     "type": "single",
     "options": [
       {
@@ -6664,11 +6664,11 @@
     "answers": [
       "B"
     ],
-    "explanation": "🎯 Đáp án đúng: B (B: ipv6 unicast-routing)\n\n📝 Dịch đề:\nLệnh nào phải được cấu hình trên router để cho phép nó tham gia địa chỉ multicast của tất cả các router IPv6\nff02::2?\n\n📋 Dịch đáp án:\n- B: ipv6 unicast-routing\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nNhóm toàn bộ bộ định tuyến IPv6 phản hồi tới địa chỉ đa hướng IPv6 ff02::2, và lệnh 'show ipv6 interface' xác minh rằng bộ định tuyến đã tham gia nhóm này.\n\n💡 Mẹo nhớ: Đáp án B (ipv6 unicast-routing)",
+    "explanation": "🎯 Đáp án đúng: B (B: ipv6 unicast-routing)\n\n📝 Dịch đề:\nLệnh nào phải được cấu hình trên bộ định tuyến để cho phép nó tham gia vào địa chỉ multicast tất cả các bộ định tuyến IPv6 (ff02::2)?\n\n📋 Dịch đáp án:\n- B: Lệnh cấu hình toàn cục bật định tuyến IPv6 và tham gia nhóm multicast FF02::2\n\n📌 Giải thích chi tiết từng bước (Vì sao chọn):\nTheo Module 8.2.2 [L1453-L1460, L1577], lệnh cấu hình toàn cục `ipv6 unicast-routing` (B) bật tính năng định tuyến IPv6 trên router Cisco, giúp các giao diện bật IPv6 tham gia nhóm multicast tất cả các bộ định tuyến (`ff02::2`) và bắt đầu gửi các bản tin RA.\n\n💡 Mẹo nhớ: Đáp án B (ipv6 unicast-routing)",
     "theory_citation": "[1] SEMESTER_3_NWC303_Theory.mhtml - NWC303 Theory Reference (L1406-L1420)",
     "theory_excerpt": "[L1406] 1. IPv6 GUA Assignment:\n[L1407] 1.1. IPv6 Host Configuration:\n[L1408] - On a router, an IPv6 global unicast address (GUA) is manually configured using the 'ipv6 address ipv6-address/prefix-length' interface configuration command.\n[L1409] (Trên một bộ định tuyến, địa chỉ unicast toàn cầu (GUA) IPv6 được cấu hình thủ công bằng lệnh cấu hình giao diện 'ipv6 address ipv6-address/prefix-length'.)\n[L1410] - A Windows host can also be manually configured with an IPv6 GUA address configuration, but this process can be time-consuming and error-prone.\n[L1411] (Một máy chủ Windows cũng có thể được cấu hình thủ công địa chỉ GUA IPv6, nhưng quá trình này có thể tốn thời gian và dễ xảy ra lỗi.)\n[L1412] - Therefore, most Windows hosts are enabled to dynamically acquire an IPv6 GUA configuration.\n[L1413] (Do đó, hầu hết các máy chủ Windows được bật tính năng tự động nhận cấu hình GUA IPv6.)\n[L1414] 1.2. IPv6 Host Link-Local Address:\n[L1415] - If automatic IPv6 addressing is selected, the host will use an Internet Control Message Protocol version 6 (ICMPv6) Router Advertisement (RA) message to help it autoconfigure an IPv6 configuration.\n[L1416] (Nếu địa chỉ IPv6 tự động được chọn, máy chủ sẽ sử dụng thông báo Quảng bá Bộ định tuyến (RA) của Giao thức Thông điệp Kiểm soát Internet phiên bản 6 (ICMPv6) để giúp tự động cấu hình IPv6.)\n[L1417] - The IPv6 link-local address is automatically created by the host when it boots and the Ethernet interface is active.\n[L1418] (Địa chỉ link-local IPv6 được máy chủ tự động tạo khi khởi động và giao diện Ethernet đang hoạt động.)\n[L1419] - The \"%\" and number at the end of the link-local address is known as a Zone ID or Scope ID, which is used by the operating system to associate the link-local address with a specific interface.\n[L1420] (Ký hiệu \"%\" và số ở cuối địa chỉ link-local được gọi là ID Vùng (Zone ID) hoặc ID Phạm vi (Scope ID), được hệ điều hành sử dụng để liên kết địa chỉ link-local với một giao diện cụ thể.)",
     "slide_comment": "",
-    "question_translation": "Lệnh nào phải được cấu hình trên router để cho phép nó tham gia địa chỉ multicast của tất cả các router IPv6\nff02::2?"
+    "question_translation": "Lệnh nào phải được cấu hình trên bộ định tuyến để cho phép nó tham gia vào địa chỉ multicast tất cả các bộ định tuyến IPv6 (ff02::2)?"
   },
   {
     "id": 179,
