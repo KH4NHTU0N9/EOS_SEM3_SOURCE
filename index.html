@@ -117,6 +117,9 @@
           <button onclick="openTheoryModal()" class="eos-btn px-2.5 py-1 rounded-sm text-xs text-emerald-800">
             📖 Kho Lý Thuyết
           </button>
+          <a href="/docs/NWC303_Exam_Summary_Guide.pdf" target="_blank" rel="noopener noreferrer" class="eos-btn px-2.5 py-1 rounded-sm text-xs text-red-800 inline-flex items-center gap-1 no-underline" title="Mở / Tải PDF Tổng Hợp &amp; Giải Thích Lý Thuyết NWC303 (16 Modules)">
+            📄 PDF Lý thuyết NWC303
+          </a>
         </div>
       </div>
 
@@ -530,7 +533,7 @@
   <div id="theoryModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/65 p-2 sm:p-4">
     <div class="eos-panel w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden shadow-2xl">
       <div class="p-2.5 border-b border-gray-400 flex flex-col gap-2">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-1">
             <span class="font-bold text-[#000080] mr-1">📖 Kho Lý Thuyết:</span>
             <button onclick="switchTheorySubject('CSD203')" id="theoryTab_CSD203" class="eos-btn px-2 py-0.5 text-xs">CSD203</button>
@@ -538,7 +541,10 @@
             <button onclick="switchTheorySubject('IAO202')" id="theoryTab_IAO202" class="eos-btn px-2 py-0.5 text-xs">IAO202</button>
             <button onclick="switchTheorySubject('DBI202')" id="theoryTab_DBI202" class="eos-btn px-2 py-0.5 text-xs">DBI202</button>
           </div>
-          <button onclick="closeTheoryModal()" class="eos-btn px-2.5 py-0.5 text-xs">✕ Đóng</button>
+          <div class="flex items-center gap-1.5">
+            <a href="/docs/NWC303_Exam_Summary_Guide.pdf" target="_blank" rel="noopener noreferrer" class="eos-btn px-2.5 py-0.5 text-xs text-red-800 no-underline" title="Mở bản PDF Tóm tắt &amp; Giải thích đầy đủ NWC303 (29 trang A4)">📄 Mở PDF NWC303</a>
+            <button onclick="closeTheoryModal()" class="eos-btn px-2.5 py-0.5 text-xs">✕ Đóng</button>
+          </div>
         </div>
         <div class="flex flex-col sm:flex-row gap-2 text-xs">
           <select id="theoryModuleSelect" onchange="onTheoryModuleDropdownChange()" class="sm:w-1/2 bg-white border border-gray-400 px-2 py-1.5 font-semibold"></select>
